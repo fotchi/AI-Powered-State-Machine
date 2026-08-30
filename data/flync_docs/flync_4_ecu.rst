@@ -1,0 +1,409 @@
+.. _ecu:
+
+###########
+flync_4_ecu
+###########
+
+ECU Config
+##########
+
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/ecu.mmd
+
+.. autoclass:: flync.model.flync_4_ecu.ecu.ECU()
+
+
+.. _ecu_ports:
+
+ECU Ports Config
+#################
+
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/ecu_port.mmd
+
+
+.. admonition:: Expand for a YAML example - 📄 ``ports.flync.yaml``
+   :collapsible: closed
+
+   .. note::
+      The external physical ports (and PHYs) of the ECUs of the system are configured in one dedicated file.
+      For an ECU config, this file is **mandatory** since all ECUs need to define (at least) one port.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/high_performance_compute/ports.flync.yaml
+      :language: yaml
+
+
+.. hint::
+
+   In case of a port with an external PHY, we need to include ``mdi_config`` (see :ref:`mdi_config`), and ``mii_config`` (see :ref:`mii_config`).
+
+.. autoclass:: flync.model.flync_4_ecu.port.ECUPort()
+
+
+.. _controller:
+
+Controller Config
+##################
+
+.. version-changed:: 0.11.0
+
+   The Structure of the Controller configuration was significantly updated with Version 0.11.0!
+   Make sure to upgrade your config to the new structure as described in the reference: :ref:`controller_config_reference`
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/controller.mmd
+
+.. note::
+   All controllers of an ECU are configured in the respective directory inside 📁 ``controllers/``.
+   This is a **mandatory** dir for the ECU configuration, since all ECUs need to define (at least) one controller.
+
+.. autoclass:: flync.model.flync_4_ecu.Controller()
+
+
+
+Ethernet Interfaces
+=====================
+
+.. admonition:: Expand for a YAML example - 📄 ``interface_config.flync.yaml``
+   :collapsible: closed
+
+   .. note::
+      The configuration of a controller interface is defined in one file per Controller.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/high_performance_compute/controllers/hpc_controller1/ethernet_interfaces/hpc_c1_iface1/interface_config.flync.yaml
+      :language: yaml
+
+
+.. hint::
+   For controller interfaces that have an external PHY, the ``mii_config`` (see :ref:`mii_config`) for that interface must be provided.
+   For controller interfaces with integrated PHY, no ``mii_config`` is needed.
+
+.. warning::
+   In any case, the MDI configuration is **never** configured on the controller interface, but on the ECU Ports. See :ref:`ecu_ports` for more details.
+
+
+.. autoclass:: flync.model.flync_4_ecu.controller.EthernetInterface()
+.. autoclass:: flync.model.flync_4_ecu.controller.ControllerInterface()
+.. autoclass:: flync.model.flync_4_ecu.controller.VirtualControllerInterface()
+.. autoclass:: flync.model.flync_4_ecu.controller.ComputeNodes()
+
+CAN Interfaces
+==============
+
+.. note::
+   CAN interfaces are optional per controller (a controller must declare at least one interface of any kind).
+   An ECU with only CAN/LIN interfaces needs no ECU ports and no internal topology. Each interface's ``bus_ref``
+   attaches it to a declared CAN bus; the system-wide attachment view is derived automatically (see
+   :ref:`bus_topology`).
+
+.. autoclass:: flync.model.flync_4_ecu.can_interface.CANInterface()
+.. autoclass:: flync.model.flync_4_ecu.can_interface.CANFrameRef()
+
+LIN Interfaces
+==============
+
+.. note::
+   A controller acts as either a LIN master or a LIN slave on a given bus. Exactly one master is required per LIN
+   bus; this is checked when the :ref:`bus_topology` is derived from the interfaces' ``bus_ref``.
+
+.. autoclass:: flync.model.flync_4_ecu.lin_interface.LINMasterInterface()
+.. autoclass:: flync.model.flync_4_ecu.lin_interface.LINSlaveInterface()
+.. autoclass:: flync.model.flync_4_ecu.lin_interface.LINFrameRef()
+
+Virtual Switch
+==============
+
+.. admonition:: Expand for a YAML example - 📄 ``virtual_switch.flync.yaml``
+   :collapsible: closed
+
+   .. note::
+      A Virtual Switch is defined in a separate file per Controller.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/eth_ecu/controllers/eth_ecu_controller1/virtual_switch.flync.yaml
+      :language: yaml
+
+.. autoclass:: flync.model.flync_4_ecu.VirtualSwitch()
+.. autoclass:: flync.model.flync_4_ecu.VirtualSwitchPort()
+
+
+.. _socket:
+
+Socket Config
+=============
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/socket.mmd
+
+
+.. admonition:: Expand for a YAML example - 📁 ``sockets/``
+   :collapsible: closed
+
+   .. note::
+      This directory contains files that define a group of sockets per VLAN for a specific ethernet interface.
+      Each file defines the sockets (VLAN ID, address endpoint and port number) and
+      lists the deployments that use each socket.
+
+      It is advisable to keep sockets that provide similar functionality together
+      (e.g. all SOME/IP sockets in the same file).
+
+   .. literalinclude:: ../../_static/flync_example/ecus/high_performance_compute/controllers/hpc_controller1/ethernet_interfaces/hpc_c1_iface1/sockets/socket_someip.flync.yaml
+
+.. autoclass:: flync.model.flync_4_ecu.socket_container.SocketContainer()
+.. autoclass:: flync.model.flync_4_ecu.sockets.Socket()
+.. autoclass:: flync.model.flync_4_ecu.sockets.SocketUDP()
+.. autoclass:: flync.model.flync_4_ecu.sockets.SocketTCP()
+
+
+Endpoints
+---------
+
+.. autoclass:: flync.model.flync_4_ecu.sockets.IPv4AddressEndpoint()
+.. autoclass:: flync.model.flync_4_ecu.sockets.IPv6AddressEndpoint()
+
+
+Deployments
+-------------
+
+.. autoclass:: flync.model.flync_4_ecu.sockets.DeploymentUnion()
+
+
+
+.. _switch:
+
+Switch Config
+##############
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/switch.mmd
+
+
+.. admonition:: Expand for a YAML example - 📁 ``switches/``
+   :collapsible: closed
+
+   .. note::
+      The switches directory contains the individual configuration files for every ethernet switch that is present in that ECU.
+      This is a **non-mandatory** directory for the ECU configuration, since not all ECUs have switches.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/high_performance_compute/switches/hpc_switch1/switch.flync.yaml
+      :language: yaml
+
+.. hint::
+
+   A switch configuration contains key details regarding the following parameters:
+
+   - switch (logical) ports
+   - VLAN configuration
+   - multicast configuration
+   - TimeSync configuration
+   - QoS configuration
+
+.. hint::
+
+   Similar to controller config, each port of switch with an external PHY has an ``mii_config`` (see :ref:`mii_config`),
+   describing the various properties of the MII connected to that port.
+   For switch ports using an integrated PHY, no ``mii_config`` is needed.
+
+.. note::
+
+   Each switch folder holds a 📄 ``switch.flync.yaml`` file (the :class:`SwitchConfig` — ports, VLANs, TCAM
+   rules, dynamic address aging) and, optionally, a 📁 ``switch_host_controller/`` sub-folder. That sub-folder
+   is a regular :ref:`controller` (name, ethernet interfaces, virtual interfaces, ...) and models the switch's
+   own host controller — the CPU that manages the switch via its CPU port. Because it is a full
+   :class:`~flync.model.flync_4_ecu.controller.Controller`, its interfaces are linked to the switch's CPU port
+   through a :class:`~flync.model.flync_4_ecu.internal_topology.SwitchPortToHostControllerInterface` connection
+   in the ECU's internal topology.
+
+.. autoclass:: flync.model.flync_4_ecu.switch.Switch()
+.. autoclass:: flync.model.flync_4_ecu.switch.SwitchConfig()
+.. autoclass:: flync.model.flync_4_ecu.switch.SwitchPort()
+.. autoclass:: flync.model.flync_4_ecu.switch.VLANEntry()
+
+TCAM
+=====
+
+.. autoclass:: flync.model.flync_4_ecu.switch.TCAMRule()
+.. autoclass:: flync.model.flync_4_ecu.switch.FrameMask()
+
+Actions
+-------
+
+.. autoclass:: flync.model.flync_4_ecu.switch.Drop()
+.. autoclass:: flync.model.flync_4_ecu.switch.Mirror()
+.. autoclass:: flync.model.flync_4_ecu.switch.ForceEgress()
+.. autoclass:: flync.model.flync_4_ecu.switch.VLANOverwrite()
+.. autoclass:: flync.model.flync_4_ecu.switch.RemoveVLAN()
+
+
+
+.. _router:
+
+Router Config
+#############
+
+.. autoclass:: flync.model.flync_4_ecu.router.RouteEntry()
+
+
+
+.. _phy:
+
+PHY Config
+###########
+
+.. _mdi_config:
+
+Media-Dependent Interfaces
+===========================
+
+
+.. autoclass:: flync.model.flync_4_ecu.phy.BASET()
+.. autoclass:: flync.model.flync_4_ecu.phy.BASET1()
+.. autoclass:: flync.model.flync_4_ecu.phy.BASET1S()
+
+
+.. _mii_config:
+
+Media-Independent Interfaces
+============================
+
+.. autoclass:: flync.model.flync_4_ecu.phy.MII()
+.. autoclass:: flync.model.flync_4_ecu.phy.RMII()
+.. autoclass:: flync.model.flync_4_ecu.phy.SGMII()
+.. autoclass:: flync.model.flync_4_ecu.phy.RGMII()
+.. autoclass:: flync.model.flync_4_ecu.phy.XFI()
+
+.. _internal_topology:
+
+ECU Internal Topology
+######################
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/ecu_topology.mmd
+
+.. admonition:: Expand for a YAML example - 📄 ``topology.flync.yaml``
+   :collapsible: closed
+
+   .. note::
+      This file contains all the different internal connections between entities of an ECU (ports, switch ports, controller interfaces, ...) to resolve the internal topology of the component and run validation checks on the model.
+      This is a **mandatory** file for the ECU configuration, since all ECUs present (at least) one ECU port and one Controller Interface.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/high_performance_compute/topology.flync.yaml
+
+
+Internal Connection
+===================
+
+.. note:: The fields of a connection will be different, depending on the kind of connection.
+
+Types of Internal Connections
+=============================
+
+
+.. table:: **Types of Internal Connections**
+   :align: left
+
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``type``                                         |1st Attribute                  |2nd Attribute                |
+   +=================================================+===============================+=============================+
+   |``ecu_port_to_switch_port``                      |``ecu_port``                   |``switch_port``              |
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``ecu_port_to_controller_interface``             |``ecu_port``                   |``controller_interface``     |
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``switch_port_to_controller_interface``          |``switch_port``                |``controller_interface``     |
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``switch_port_to_host_controller_interface``     |``switch_port``                |``host_controller_interface``|
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``switch_port_to_switch_port``                   |``switch_port_1``              |``switch_port_2``            |
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+   |``controller_interface_to_controller_interface`` |``controller_interface_1``     |``controller_interface_2``   |
+   +-------------------------------------------------+-------------------------------+-----------------------------+
+
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.InternalTopology()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.InternalConnectionUnion()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.InternalConnection()
+
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.ECUPortToXConnection()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.SwitchPortToXConnection()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.ECUPortToSwitchPort()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.ECUPortToControllerInterface()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.SwitchPortToControllerInterface()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.SwitchPortToHostControllerInterface()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.SwitchPortToSwitchPort()
+.. autoclass:: flync.model.flync_4_ecu.internal_topology.ControllerInterfaceToControllerInterface()
+
+
+
+.. _mac_multicast_endpoints:
+
+MAC Multicast Endpoints
+#######################
+
+.. admonition:: Expand for Schematic
+   :collapsible: closed
+
+   .. mermaid:: ../../_static/mermaid/mac_multicast_endpoint.mmd
+
+
+.. admonition:: Expand for a YAML example - 📄 ``mac_multicast_endpoints.flync.yaml``
+   :collapsible: closed
+
+   .. note::
+      This file contains defines Endpoints of the ECU for transmitted MAC multicast addresses.
+
+   .. literalinclude:: ../../_static/flync_example/ecus/zonal_platform1/mac_multicast_endpoints.flync.yaml
+
+
+.. autoclass:: flync.model.flync_4_ecu.mac_multicast_endpoint.MACMulticastEndpoints()
+.. autoclass:: flync.model.flync_4_ecu.mac_multicast_endpoint.MACEndpointUnion()
+.. autoclass:: flync.model.flync_4_ecu.mac_multicast_endpoint.MACMulticastEndpoint()
+.. autoclass:: flync.model.flync_4_ecu.mac_multicast_endpoint.AVTPMulticastEndpoint()
+
+
+
+.. _ecu_multicast:
+
+Multicast Group Memberships
+############################
+
+.. hint::
+   Multicast group memberships of an ECU are computed from several locations of a FLYNC Config.
+   They are stored as a list in the field `multicast_groups` of an ECU.
+   Mind that these multicast groups are not part of any YAML config, but are accessible fields in a FLYNC workspace.
+
+.. grid::
+
+   .. grid-item-card:: Receiving Nodes
+
+      **Receiving nodes** are listed in the multicast group membership with the mode "rx".
+
+      These entries are computed from:
+
+      - MAC, IPv4 or IPv6 addresses in the field `multicast` of a :class:`~flync.model.flync_4_ecu.controller.VirtualControllerInterface`,
+      - IPv6 addresses of a :class:`~flync.model.flync_4_ecu.controller.VirtualControllerInterface`
+        as solicited-node multicast addresses.
+
+   .. grid-item-card:: Sending Nodes
+
+      **Sender nodes** are listed in the multicast group membership with the mode "tx".
+
+      These entries are computed from:
+
+      - IPv4 or IPv6 addresses in the field `multicast_tx` of a :class:`~flync.model.flync_4_ecu.sockets.Socket`,
+      - MAC addresses in the field `multicast_tx` of a :class:`~flync.model.flync_4_ecu.mac_multicast_endpoint.MACMulticastEndpoint`,
+      - IPv6 solicited-node multicast addresses per VLAN.
+
+
+.. autoclass:: flync.model.flync_4_ecu.multicast_groups.MulticastGroupMembership()

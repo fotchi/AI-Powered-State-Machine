@@ -1,0 +1,189 @@
+{
+  "nodes": [
+    "flync_4_app",
+    "flync_4_bus",
+    "flync_4_communication",
+    "flync_4_ecu",
+    "flync_4_metadata",
+    "flync_4_nm",
+    "flync_4_safety",
+    "flync_4_security",
+    "flync_4_signal",
+    "flync_4_someip",
+    "flync_4_topology",
+    "flync_4_tsn"
+  ],
+  "edges": [
+    {
+      "source": "flync_4_bus",
+      "target": "flync_4_signal",
+      "weight": 3,
+      "evidence": [
+        "CANBus.frames -> CANFrame",
+        "CANBus.frames -> CANFDFrame",
+        "LINBus.frames -> LINFrame"
+      ]
+    },
+    {
+      "source": "flync_4_bus",
+      "target": "flync_4_nm",
+      "weight": 2,
+      "evidence": [
+        "CANBus.state_memberships -> StateMembershipRef",
+        "LINBus.state_memberships -> StateMembershipRef"
+      ]
+    },
+    {
+      "source": "flync_4_communication",
+      "target": "flync_4_signal",
+      "weight": 3,
+      "evidence": [
+        "FLYNCChannelConfig.pdus -> StandardPDU",
+        "FLYNCChannelConfig.pdus -> MultiplexedPDU",
+        "FLYNCChannelConfig.ethernet_pdu_containers -> ContainerPDU"
+      ]
+    },
+    {
+      "source": "flync_4_communication",
+      "target": "flync_4_bus",
+      "weight": 2,
+      "evidence": [
+        "FLYNCChannelConfig.can_buses -> CANBus",
+        "FLYNCChannelConfig.lin_buses -> LINBus"
+      ]
+    },
+    {
+      "source": "flync_4_communication",
+      "target": "flync_4_ecu",
+      "weight": 2,
+      "evidence": [
+        "FLYNCCommunicationConfig.tcp_profiles -> TCPOption",
+        "FLYNCCommunicationConfig.tcp_profiles -> TCPOption"
+      ]
+    },
+    {
+      "source": "flync_4_communication",
+      "target": "flync_4_someip",
+      "weight": 2,
+      "evidence": [
+        "FLYNCCommunicationConfig.someip_config -> SOMEIPConfig",
+        "FLYNCCommunicationConfig.someip_config -> SOMEIPConfig"
+      ]
+    },
+    {
+      "source": "flync_4_communication",
+      "target": "flync_4_nm",
+      "weight": 1,
+      "evidence": [
+        "FLYNCCommunicationConfig.state_management -> StateManagementConfig"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_metadata",
+      "weight": 3,
+      "evidence": [
+        "Controller.controller_metadata -> EmbeddedMetadata",
+        "ECU.ecu_metadata -> ECUMetadata",
+        "SwitchConfig.meta -> EmbeddedMetadata"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_app",
+      "weight": 1,
+      "evidence": [
+        "Controller.app_bindings -> AppBindings"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_nm",
+      "weight": 5,
+      "evidence": [
+        "Controller.state_memberships -> StateMembershipRef",
+        "Controller.state_memberships -> StateMembershipRef",
+        "ECU.state_memberships -> StateMembershipRef",
+        "ECU.state_memberships -> StateMembershipRef",
+        "ECU._state_effective_members -> EffectiveMember"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_signal",
+      "weight": 3,
+      "evidence": [
+        "DeploymentUnion.root -> PDUForwarder",
+        "DeploymentUnion.root -> PDUReceiver",
+        "DeploymentUnion.root -> PDUSender"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_someip",
+      "weight": 3,
+      "evidence": [
+        "DeploymentUnion.root -> SOMEIPSDDeployment",
+        "DeploymentUnion.root -> SOMEIPServiceConsumer",
+        "DeploymentUnion.root -> SOMEIPServiceProvider"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_tsn",
+      "weight": 7,
+      "evidence": [
+        "SwitchPort.ptp_config -> PTPConfig",
+        "SwitchPort.ptp_config -> PTPConfig",
+        "SwitchPort.ingress_streams -> Stream",
+        "SwitchPort.ingress_streams -> Stream",
+        "SwitchPort.traffic_classes -> TrafficClass",
+        "SwitchPort.traffic_classes -> TrafficClass",
+        "TCAMRule.match_filter -> FrameFilter"
+      ]
+    },
+    {
+      "source": "flync_4_ecu",
+      "target": "flync_4_security",
+      "weight": 2,
+      "evidence": [
+        "SwitchPort.macsec_config -> MACsecConfig",
+        "SwitchPort.macsec_config -> MACsecConfig"
+      ]
+    },
+    {
+      "source": "flync_4_security",
+      "target": "flync_4_tsn",
+      "weight": 1,
+      "evidence": [
+        "FirewallRule.pattern -> FrameFilter"
+      ]
+    },
+    {
+      "source": "flync_4_someip",
+      "target": "flync_4_safety",
+      "weight": 2,
+      "evidence": [
+        "SOMEIPField.notifier_e2e -> E2EConfig",
+        "SOMEIPEvent.e2e -> E2EConfig"
+      ]
+    },
+    {
+      "source": "flync_4_someip",
+      "target": "flync_4_metadata",
+      "weight": 1,
+      "evidence": [
+        "SOMEIPServiceInterface.meta -> SOMEIPServiceMetadata"
+      ]
+    },
+    {
+      "source": "flync_4_topology",
+      "target": "flync_4_ecu",
+      "weight": 2,
+      "evidence": [
+        "ExternalConnection._ecu1_port -> ECUPort",
+        "ExternalConnection._ecu2_port -> ECUPort"
+      ]
+    }
+  ]
+}

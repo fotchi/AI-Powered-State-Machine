@@ -1,0 +1,7570 @@
+{
+  "ServiceConsumerReference": {
+    "domain": "flync_4_app",
+    "file": "data/flync_source\\flync_4_app\\application.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "consumer"
+        ]
+      ],
+      [
+        "service_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "instance_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "ServiceProviderReference": {
+    "domain": "flync_4_app",
+    "file": "data/flync_source\\flync_4_app\\application.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "provider"
+        ]
+      ],
+      [
+        "service_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "instance_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "App": {
+    "domain": "flync_4_app",
+    "file": "data/flync_source\\flync_4_app\\application.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FILE_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "service_consumer_refs",
+        [
+          "Optional",
+          "List",
+          "ServiceConsumerReference"
+        ]
+      ],
+      [
+        "service_provider_refs",
+        [
+          "Optional",
+          "List",
+          "ServiceProviderReference"
+        ]
+      ]
+    ]
+  },
+  "AppBindings": {
+    "domain": "flync_4_app",
+    "file": "data/flync_source\\flync_4_app\\app_bindings.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "app_refs",
+        [
+          "Annotated",
+          "List",
+          "str",
+          "Reference",
+          "_apps"
+        ]
+      ],
+      [
+        "_apps",
+        [
+          "List",
+          "App"
+        ]
+      ]
+    ]
+  },
+  "CANBus": {
+    "domain": "flync_4_bus",
+    "file": "data/flync_source\\flync_4_bus\\can_bus.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "version",
+        [
+          "str"
+        ]
+      ],
+      [
+        "baud_rate",
+        [
+          "int"
+        ]
+      ],
+      [
+        "fd_enabled",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "fd_baud_rate",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "frames",
+        [
+          "List",
+          "Annotated",
+          "CANFrame",
+          "CANFDFrame",
+          "Field",
+          "type"
+        ]
+      ],
+      [
+        "state_memberships",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "StateMembershipRef",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "LINScheduleEntry": {
+    "domain": "flync_4_bus",
+    "file": "data/flync_source\\flync_4_bus\\lin_bus.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "frame_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "period",
+        [
+          "Annotated",
+          "float",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "LINScheduleTable": {
+    "domain": "flync_4_bus",
+    "file": "data/flync_source\\flync_4_bus\\lin_bus.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "entries",
+        [
+          "List",
+          "LINScheduleEntry"
+        ]
+      ]
+    ]
+  },
+  "LINBus": {
+    "domain": "flync_4_bus",
+    "file": "data/flync_source\\flync_4_bus\\lin_bus.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "lin_protocol_version",
+        [
+          "_LINProtocol"
+        ]
+      ],
+      [
+        "lin_language_version",
+        [
+          "_LINProtocol"
+        ]
+      ],
+      [
+        "baud_rate",
+        [
+          "int"
+        ]
+      ],
+      [
+        "channel_name",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "time_base",
+        [
+          "float"
+        ]
+      ],
+      [
+        "jitter",
+        [
+          "float"
+        ]
+      ],
+      [
+        "schedule_tables",
+        [
+          "List",
+          "LINScheduleTable"
+        ]
+      ],
+      [
+        "frames",
+        [
+          "List",
+          "LINFrame"
+        ]
+      ],
+      [
+        "state_memberships",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "StateMembershipRef",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "FLYNCChannelConfig": {
+    "domain": "flync_4_communication",
+    "file": "data/flync_source\\flync_4_communication\\flync_channels.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "pdus",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "FOLDER",
+          "FIXED_PATH",
+          "pdus",
+          "Annotated",
+          "OutputStrategy",
+          "NamingStrategy",
+          "StandardPDU",
+          "MultiplexedPDU",
+          "Field",
+          "type"
+        ]
+      ],
+      [
+        "can_buses",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "CANBus",
+          "FOLDER",
+          "FIXED_PATH",
+          "can",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "lin_buses",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "LINBus",
+          "FOLDER",
+          "FIXED_PATH",
+          "lin",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "ethernet_pdu_containers",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "ContainerPDU",
+          "FOLDER",
+          "FIXED_PATH",
+          "ethernet_pdu_containers",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ]
+    ]
+  },
+  "FLYNCCommunicationConfig": {
+    "domain": "flync_4_communication",
+    "file": "data/flync_source\\flync_4_communication\\flync_communication.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "tcp_profiles",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "BeforeValidator",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "TCPOption",
+          "SINGLE_FILE",
+          "validate_or_remove",
+          "TCP profiles",
+          "common_validators",
+          "OutputStrategy",
+          "common_validators",
+          "List",
+          "TCPOption"
+        ]
+      ],
+      [
+        "someip_config",
+        [
+          "Annotated",
+          "Optional",
+          "SOMEIPConfig",
+          "External",
+          "BeforeValidator",
+          "FOLDER",
+          "FIXED_PATH",
+          "someip",
+          "validate_or_remove",
+          "SOME/IP config",
+          "SOMEIPConfig",
+          "OutputStrategy",
+          "NamingStrategy",
+          "common_validators"
+        ]
+      ],
+      [
+        "channels",
+        [
+          "Annotated",
+          "Optional",
+          "FLYNCChannelConfig",
+          "External",
+          "FOLDER",
+          "FIXED_PATH",
+          "channels",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "state_management",
+        [
+          "Annotated",
+          "Optional",
+          "StateManagementConfig",
+          "External",
+          "FOLDER",
+          "FIXED_PATH",
+          "state_management",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ]
+    ]
+  },
+  "VirtualControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "vlanid",
+        [
+          "Annotated",
+          "Optional",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id",
+          "common_validators"
+        ]
+      ],
+      [
+        "addresses",
+        [
+          "List",
+          "IPv6AddressEndpoint",
+          "IPv4AddressEndpoint"
+        ]
+      ],
+      [
+        "multicast",
+        [
+          "Annotated",
+          "Optional",
+          "AfterValidator",
+          "validate_multicast_list",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "common_validators",
+          "common_validators",
+          "IPvAnyAddress",
+          "FLYNCMacAddress"
+        ]
+      ]
+    ]
+  },
+  "ComputeNodes": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "mac_address",
+        [
+          "Optional",
+          "FLYNCMacAddress"
+        ]
+      ],
+      [
+        "virtual_interfaces",
+        [
+          "Annotated",
+          "List",
+          "VirtualControllerInterface",
+          "BeforeValidator",
+          "validate_list_items_and_remove",
+          "virtual interface",
+          "VirtualControllerInterface",
+          "common_validators",
+          "minor"
+        ]
+      ],
+      [
+        "ptp_config",
+        [
+          "_PTPConfigField"
+        ]
+      ],
+      [
+        "macsec_config",
+        [
+          "_MACsecConfigField"
+        ]
+      ],
+      [
+        "firewall",
+        [
+          "_FirewallField"
+        ]
+      ],
+      [
+        "htb",
+        [
+          "_HTBField"
+        ]
+      ],
+      [
+        "ingress_streams",
+        [
+          "_IngressStreamsField"
+        ]
+      ],
+      [
+        "traffic_classes",
+        [
+          "_TrafficClassesField"
+        ]
+      ]
+    ]
+  },
+  "VirtualSwitchPort": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "node_connected",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "VirtualSwitch": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "ports",
+        [
+          "List",
+          "VirtualSwitchPort"
+        ]
+      ],
+      [
+        "vlans",
+        [
+          "List",
+          "VLANEntry"
+        ]
+      ]
+    ]
+  },
+  "EthernetInterfaceConfig": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "mac_address",
+        [
+          "Optional",
+          "FLYNCMacAddress"
+        ]
+      ],
+      [
+        "mii_config",
+        [
+          "Optional",
+          "XFI",
+          "RGMII",
+          "SGMII",
+          "MII",
+          "RMII"
+        ]
+      ],
+      [
+        "compute_nodes",
+        [
+          "Optional",
+          "List",
+          "ComputeNodes"
+        ]
+      ],
+      [
+        "virtual_interfaces",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "List",
+          "VirtualControllerInterface",
+          "validate_list_items_and_remove",
+          "virtual interface",
+          "VirtualControllerInterface",
+          "common_validators",
+          "minor"
+        ]
+      ],
+      [
+        "ptp_config",
+        [
+          "_PTPConfigField"
+        ]
+      ],
+      [
+        "macsec_config",
+        [
+          "_MACsecConfigField"
+        ]
+      ],
+      [
+        "firewall",
+        [
+          "_FirewallField"
+        ]
+      ],
+      [
+        "htb",
+        [
+          "_HTBField"
+        ]
+      ],
+      [
+        "ingress_streams",
+        [
+          "_IngressStreamsField"
+        ]
+      ],
+      [
+        "traffic_classes",
+        [
+          "_TrafficClassesField"
+        ]
+      ],
+      [
+        "routing_table",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "RouteEntry",
+          "common_validators"
+        ]
+      ],
+      [
+        "_name",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "EthernetInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "ControllerInterface"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FOLDER_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "interface_config",
+        [
+          "Annotated",
+          "EthernetInterfaceConfig",
+          "External",
+          "FIELD_NAME",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "NamingStrategy",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "sockets",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "SocketContainer",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "_connected_component",
+        [
+          "List"
+        ]
+      ],
+      [
+        "_type",
+        [
+          "Literal",
+          "controller_interface"
+        ]
+      ],
+      [
+        "_controller",
+        [
+          "Optional",
+          "Controller"
+        ]
+      ]
+    ]
+  },
+  "Controller": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FOLDER_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "controller_metadata",
+        [
+          "Annotated",
+          "EmbeddedMetadata",
+          "External",
+          "SINGLE_FILE",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "ethernet_interfaces",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "EthernetInterface",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "can_interfaces",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "CANInterface",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "lin_interfaces",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "AnyLINInterface",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "virtual_switch",
+        [
+          "Annotated",
+          "Optional",
+          "VirtualSwitch",
+          "External",
+          "FIELD_NAME",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "NamingStrategy",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "app_bindings",
+        [
+          "Annotated",
+          "Optional",
+          "AppBindings",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "state_memberships",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "BeforeValidator",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "StateMembershipRef",
+          "SINGLE_FILE",
+          "validate_or_remove",
+          "state memberships",
+          "common_validators",
+          "OutputStrategy",
+          "common_validators",
+          "List",
+          "StateMembershipRef"
+        ]
+      ],
+      [
+        "_type",
+        [
+          "Literal",
+          "controller"
+        ]
+      ]
+    ]
+  },
+  "ControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\controller_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "ECU": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\ecu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FOLDER_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "ports",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "ECUPort",
+          "SINGLE_FILE",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "controllers",
+        [
+          "Annotated",
+          "List",
+          "Controller",
+          "External",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "switches",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "List",
+          "Switch",
+          "FOLDER",
+          "FIELD_NAME",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ],
+      [
+        "topology",
+        [
+          "Annotated",
+          "Optional",
+          "InternalTopology",
+          "External",
+          "BeforeValidator",
+          "FIELD_NAME",
+          "validate_or_remove",
+          "internal topology",
+          "InternalTopology",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "NamingStrategy",
+          "common_validators",
+          "major",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "ecu_metadata",
+        [
+          "Annotated",
+          "ECUMetadata",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "mac_multicast_endpoints",
+        [
+          "Annotated",
+          "Optional",
+          "MACMulticastEndpoints",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "multicast_groups",
+        [
+          "Optional",
+          "List",
+          "MulticastGroupMembership"
+        ]
+      ],
+      [
+        "state_memberships",
+        [
+          "Annotated",
+          "Optional",
+          "External",
+          "BeforeValidator",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "StateMembershipRef",
+          "SINGLE_FILE",
+          "validate_or_remove",
+          "state memberships",
+          "common_validators",
+          "OutputStrategy",
+          "common_validators",
+          "List",
+          "StateMembershipRef"
+        ]
+      ],
+      [
+        "_state_effective_members",
+        [
+          "List",
+          "EffectiveMember"
+        ]
+      ],
+      [
+        "_connectivity_check_done",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "InternalConnection": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "_ecu",
+        [
+          "Optional",
+          "ECU"
+        ]
+      ]
+    ]
+  },
+  "ECUPortToXConnection": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "InternalConnection"
+    ],
+    "fields": [
+      [
+        "ecu_port_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_ecu_port"
+        ]
+      ],
+      [
+        "_ecu_port",
+        [
+          "Optional",
+          "ECUPort"
+        ]
+      ]
+    ]
+  },
+  "SwitchPortToXConnection": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "InternalConnection"
+    ],
+    "fields": [
+      [
+        "switch_port_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_switch_port"
+        ]
+      ],
+      [
+        "switch_name",
+        [
+          "Annotated",
+          "Optional",
+          "str",
+          "Reference",
+          "_switch"
+        ]
+      ],
+      [
+        "_switch_port",
+        [
+          "Optional",
+          "SwitchPort"
+        ]
+      ],
+      [
+        "_switch",
+        [
+          "Optional",
+          "Switch"
+        ]
+      ]
+    ]
+  },
+  "ControllerInterfaceToXConnection": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "InternalConnection"
+    ],
+    "fields": [
+      [
+        "iface_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_iface"
+        ]
+      ],
+      [
+        "controller_name",
+        [
+          "Annotated",
+          "Optional",
+          "str",
+          "Reference",
+          "_controller"
+        ]
+      ],
+      [
+        "_iface",
+        [
+          "Optional",
+          "EthernetInterface"
+        ]
+      ],
+      [
+        "_controller",
+        [
+          "Optional",
+          "Controller"
+        ]
+      ]
+    ]
+  },
+  "ECUPortToSwitchPort": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "ECUPortToXConnection",
+      "SwitchPortToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "ecu_port_to_switch_port"
+        ]
+      ]
+    ]
+  },
+  "ECUPortToControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "ECUPortToXConnection",
+      "ControllerInterfaceToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "ecu_port_to_controller_interface"
+        ]
+      ]
+    ]
+  },
+  "SwitchPortToControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "SwitchPortToXConnection",
+      "ControllerInterfaceToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "switch_port_to_controller_interface"
+        ]
+      ]
+    ]
+  },
+  "SwitchPortToHostControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "SwitchPortToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "switch_port_to_host_controller_interface"
+        ]
+      ],
+      [
+        "host_controller_interface_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_iface"
+        ]
+      ],
+      [
+        "_iface",
+        [
+          "Optional",
+          "EthernetInterface"
+        ]
+      ]
+    ]
+  },
+  "SwitchPortToSwitchPort": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "SwitchPortToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "switch_to_switch_same_ecu"
+        ]
+      ],
+      [
+        "_switch2_port",
+        [
+          "Optional",
+          "SwitchPort"
+        ]
+      ],
+      [
+        "_switch2",
+        [
+          "Optional",
+          "Switch"
+        ]
+      ],
+      [
+        "switch2_port_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_switch2_port"
+        ]
+      ],
+      [
+        "switch2_name",
+        [
+          "Annotated",
+          "Optional",
+          "str",
+          "Reference",
+          "_switch2"
+        ]
+      ]
+    ]
+  },
+  "ControllerInterfaceToControllerInterface": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "ControllerInterfaceToXConnection"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "controller_interface_to_controller_interface"
+        ]
+      ],
+      [
+        "iface2_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_iface2"
+        ]
+      ],
+      [
+        "controller2_name",
+        [
+          "Annotated",
+          "Optional",
+          "str",
+          "Reference",
+          "_controller2"
+        ]
+      ],
+      [
+        "_iface2",
+        [
+          "Optional",
+          "EthernetInterface"
+        ]
+      ],
+      [
+        "_controller2",
+        [
+          "Optional",
+          "Controller"
+        ]
+      ]
+    ]
+  },
+  "InternalConnectionUnion": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "RootModel"
+    ],
+    "fields": [
+      [
+        "root",
+        [
+          "ControllerInterfaceToControllerInterface",
+          "SwitchPortToSwitchPort",
+          "SwitchPortToHostControllerInterface",
+          "SwitchPortToControllerInterface",
+          "ECUPortToSwitchPort",
+          "ECUPortToControllerInterface"
+        ]
+      ]
+    ]
+  },
+  "InternalTopology": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\internal_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "connections",
+        [
+          "List",
+          "InternalConnectionUnion"
+        ]
+      ]
+    ]
+  },
+  "MACMulticastEndpoint": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\mac_multicast_endpoint.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "mac_address",
+        [
+          "FLYNCMacAddress"
+        ]
+      ],
+      [
+        "protocol",
+        [
+          "str"
+        ]
+      ],
+      [
+        "ethertype",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "vlan_id",
+        [
+          "Annotated",
+          "Optional",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id"
+        ]
+      ],
+      [
+        "multicast_tx",
+        [
+          "Optional",
+          "List",
+          "Annotated",
+          "FLYNCMacAddress",
+          "AfterValidator",
+          "validate_mac_multicast"
+        ]
+      ]
+    ]
+  },
+  "AVTPMulticastEndpoint": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\mac_multicast_endpoint.py",
+    "bases": [
+      "MACMulticastEndpoint"
+    ],
+    "fields": [
+      [
+        "ethertype",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "protocol",
+        [
+          "Literal",
+          "avtp",
+          "Literal",
+          "AVTP"
+        ]
+      ]
+    ]
+  },
+  "MACEndpointUnion": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\mac_multicast_endpoint.py",
+    "bases": [
+      "RootModel"
+    ],
+    "fields": [
+      [
+        "root",
+        [
+          "AVTPMulticastEndpoint"
+        ]
+      ]
+    ]
+  },
+  "MACMulticastEndpoints": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\mac_multicast_endpoint.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "endpoints",
+        [
+          "List",
+          "MACEndpointUnion"
+        ]
+      ]
+    ]
+  },
+  "MulticastGroupMembership": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\multicast_groups.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "group",
+        [
+          "Annotated",
+          "IPvAnyAddress",
+          "FLYNCMacAddress",
+          "AfterValidator",
+          "validate_any_multicast_address",
+          "common_validators"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "tx",
+          "Literal",
+          "rx"
+        ]
+      ],
+      [
+        "vlan",
+        [
+          "Annotated",
+          "Optional",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id"
+        ]
+      ],
+      [
+        "src_ip",
+        [
+          "Optional",
+          "IPvAnyAddress"
+        ]
+      ],
+      [
+        "solicited_node_multicast",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "_interface",
+        [
+          "EthernetInterfaceConfig"
+        ]
+      ]
+    ]
+  },
+  "BASET1": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "mode",
+        [
+          "Literal",
+          "base_t1"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "duplex",
+        [
+          "Literal",
+          "full"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "master",
+          "slave"
+        ]
+      ],
+      [
+        "autonegotiation",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "BASET1S": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "mode",
+        [
+          "Literal",
+          "base_t1s"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "duplex",
+        [
+          "Literal",
+          "half"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "master",
+          "slave"
+        ]
+      ],
+      [
+        "autonegotiation",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "BASET": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "mode",
+        [
+          "Literal",
+          "base_t"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "duplex",
+        [
+          "Literal",
+          "full"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "master",
+          "slave"
+        ]
+      ],
+      [
+        "autonegotiation",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "MII": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "mii"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "mac",
+          "phy"
+        ]
+      ]
+    ]
+  },
+  "RMII": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "rmii"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "mac",
+          "phy"
+        ]
+      ]
+    ]
+  },
+  "SGMII": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "sgmii"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "mac",
+          "phy"
+        ]
+      ]
+    ]
+  },
+  "RGMII": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "rgmii"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "mac",
+          "phy"
+        ]
+      ]
+    ]
+  },
+  "XFI": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\phy.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "xfi"
+        ]
+      ],
+      [
+        "speed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "mode",
+        [
+          "Literal",
+          "mac",
+          "phy"
+        ]
+      ]
+    ]
+  },
+  "ECUPort": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\port.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "mdi_config",
+        [
+          "BASET",
+          "BASET1",
+          "BASET1S"
+        ]
+      ],
+      [
+        "mii_config",
+        [
+          "Optional",
+          "XFI",
+          "RGMII",
+          "SGMII",
+          "MII",
+          "RMII"
+        ]
+      ],
+      [
+        "_ecu",
+        [
+          "ECU"
+        ]
+      ],
+      [
+        "_connected_components",
+        [
+          "List"
+        ]
+      ],
+      [
+        "_type",
+        [
+          "Literal",
+          "ecu_port"
+        ]
+      ]
+    ]
+  },
+  "RouteEntry": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\router.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "destination",
+        [
+          "IPv4AddressEntry",
+          "IPv6AddressEntry"
+        ]
+      ],
+      [
+        "default_gateway",
+        [
+          "IPvAnyAddress"
+        ]
+      ],
+      [
+        "egress_interface",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "DeploymentUnion": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "RootModel"
+    ],
+    "fields": [
+      [
+        "root",
+        [
+          "PDUForwarder",
+          "PDUReceiver",
+          "PDUSender",
+          "SOMEIPSDDeployment",
+          "SOMEIPServiceConsumer",
+          "SOMEIPServiceProvider"
+        ]
+      ]
+    ]
+  },
+  "Socket": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "endpoint_address",
+        [
+          "IPvAnyAddress"
+        ]
+      ],
+      [
+        "port_no",
+        [
+          "int"
+        ]
+      ],
+      [
+        "deployments",
+        [
+          "Optional",
+          "List",
+          "DeploymentUnion"
+        ]
+      ],
+      [
+        "endpoint_type",
+        [
+          "Optional",
+          "Literal",
+          "multicast",
+          "unicast"
+        ]
+      ],
+      [
+        "multicast_tx",
+        [
+          "Optional",
+          "List",
+          "IPvAnyAddress"
+        ]
+      ]
+    ]
+  },
+  "TCPOption": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "tcp_profile_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "nagle",
+        [
+          "Optional",
+          "StrictBool"
+        ]
+      ],
+      [
+        "keepalive_enabled",
+        [
+          "Optional",
+          "StrictBool"
+        ]
+      ],
+      [
+        "keepidle",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "keepcount",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "keepintvl",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "user_timeout",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "congestion_avoidance",
+        [
+          "Optional",
+          "Literal",
+          "reno",
+          "cubic",
+          "bbr"
+        ]
+      ],
+      [
+        "tcp_maxseg",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "tcp_quickack",
+        [
+          "Optional",
+          "StrictBool"
+        ]
+      ],
+      [
+        "tcp_syncnt",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "UDPOption": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "udp_cork",
+        [
+          "Optional",
+          "StrictBool"
+        ]
+      ]
+    ]
+  },
+  "SocketTCP": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "Socket"
+    ],
+    "fields": [
+      [
+        "protocol",
+        [
+          "Literal",
+          "tcp"
+        ]
+      ],
+      [
+        "tcp_profile",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SocketUDP": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "Socket"
+    ],
+    "fields": [
+      [
+        "protocol",
+        [
+          "Literal",
+          "udp"
+        ]
+      ],
+      [
+        "udp_options",
+        [
+          "Optional",
+          "UDPOption"
+        ]
+      ]
+    ]
+  },
+  "IPv4AddressEndpoint": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "IPv4AddressEntry"
+    ],
+    "fields": [
+      [
+        "sockets",
+        [
+          "List",
+          "Annotated",
+          "SocketTCP",
+          "SocketUDP",
+          "Field",
+          "protocol"
+        ]
+      ]
+    ]
+  },
+  "IPv6AddressEndpoint": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\sockets.py",
+    "bases": [
+      "IPv6AddressEntry"
+    ],
+    "fields": [
+      [
+        "sockets",
+        [
+          "List",
+          "Annotated",
+          "SocketTCP",
+          "SocketUDP",
+          "Field",
+          "protocol"
+        ]
+      ]
+    ]
+  },
+  "SocketContainer": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\socket_container.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FILE_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "vlan_id",
+        [
+          "Annotated",
+          "Optional",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id",
+          "common_validators"
+        ]
+      ],
+      [
+        "sockets",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "List",
+          "validate_list_items_and_remove",
+          "socket",
+          "Annotated",
+          "common_validators",
+          "Annotated",
+          "minor",
+          "SocketTCP",
+          "SocketUDP",
+          "Field",
+          "SocketTCP",
+          "SocketUDP",
+          "Field",
+          "protocol",
+          "protocol"
+        ]
+      ]
+    ]
+  },
+  "SwitchPort": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "silicon_port_no",
+        [
+          "int"
+        ]
+      ],
+      [
+        "default_vlan_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "mii_config",
+        [
+          "Optional",
+          "XFI",
+          "RGMII",
+          "SGMII",
+          "MII",
+          "RMII"
+        ]
+      ],
+      [
+        "ptp_config",
+        [
+          "Annotated",
+          "Optional",
+          "PTPConfig",
+          "BeforeValidator",
+          "validate_or_remove",
+          "PTP config",
+          "PTPConfig",
+          "common_validators"
+        ]
+      ],
+      [
+        "ingress_streams",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "Stream",
+          "validate_or_remove",
+          "ingress streams",
+          "common_validators",
+          "common_validators",
+          "List",
+          "Stream"
+        ]
+      ],
+      [
+        "traffic_classes",
+        [
+          "Annotated",
+          "Optional",
+          "AfterValidator",
+          "validate_traffic_classes",
+          "BeforeValidator",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "TrafficClass",
+          "common_validators",
+          "validate_or_remove",
+          "traffic classes",
+          "common_validators",
+          "common_validators",
+          "List",
+          "TrafficClass"
+        ]
+      ],
+      [
+        "macsec_config",
+        [
+          "Annotated",
+          "Optional",
+          "MACsecConfig",
+          "BeforeValidator",
+          "validate_or_remove",
+          "MACsec config",
+          "MACsecConfig",
+          "common_validators"
+        ]
+      ],
+      [
+        "_mdi_config",
+        [
+          "BASET",
+          "BASET1",
+          "BASET1S"
+        ]
+      ],
+      [
+        "_connected_component",
+        [
+          "Optional",
+          "Any"
+        ]
+      ],
+      [
+        "_type",
+        [
+          "Literal",
+          "switch_port"
+        ]
+      ],
+      [
+        "_switch",
+        [
+          "Optional",
+          "Switch"
+        ]
+      ]
+    ]
+  },
+  "PortScopedAction": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ports",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "str",
+          "common_validators"
+        ]
+      ],
+      [
+        "_ports_autofilled",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "Drop": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "PortScopedAction"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "drop"
+        ]
+      ]
+    ]
+  },
+  "Mirror": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "PortScopedAction"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "mirror"
+        ]
+      ]
+    ]
+  },
+  "ForceEgress": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "PortScopedAction"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "force_egress"
+        ]
+      ]
+    ]
+  },
+  "VLANOverwrite": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "PortScopedAction"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "vlan_overwrite"
+        ]
+      ],
+      [
+        "overwrite_vlan_id",
+        [
+          "Annotated",
+          "Optional",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id"
+        ]
+      ],
+      [
+        "overwrite_vlan_pcp",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "RemoveVLAN": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "PortScopedAction"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "remove_vlan"
+        ]
+      ]
+    ]
+  },
+  "FrameMask": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "Bitmask"
+    ],
+    "fields": [
+      [
+        "offset",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "TCAMRule": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "StrictInt"
+        ]
+      ],
+      [
+        "match_filter",
+        [
+          "Optional",
+          "FrameFilter"
+        ]
+      ],
+      [
+        "frame_mask",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "FrameMask",
+          "common_validators"
+        ]
+      ],
+      [
+        "frame_window",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "match_ports",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "str",
+          "common_validators"
+        ]
+      ],
+      [
+        "action",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "common_validators",
+          "RemoveVLAN",
+          "ForceEgress",
+          "VLANOverwrite",
+          "Drop",
+          "Mirror"
+        ]
+      ],
+      [
+        "vehicle_state",
+        [
+          "Optional",
+          "Bitmask"
+        ]
+      ],
+      [
+        "_match_ports_autofilled",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "SwitchConfig": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "meta",
+        [
+          "EmbeddedMetadata"
+        ]
+      ],
+      [
+        "tcam_rules",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "TCAMRule",
+          "common_validators"
+        ]
+      ],
+      [
+        "ports",
+        [
+          "List",
+          "SwitchPort"
+        ]
+      ],
+      [
+        "vlans",
+        [
+          "List",
+          "VLANEntry"
+        ]
+      ],
+      [
+        "dynamic_address_aging_time",
+        [
+          "Optional",
+          "StrictInt"
+        ]
+      ]
+    ]
+  },
+  "Switch": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\switch.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Implied",
+          "FOLDER_NAME",
+          "ImpliedStrategy"
+        ]
+      ],
+      [
+        "switch_config",
+        [
+          "Annotated",
+          "SwitchConfig",
+          "External",
+          "FIXED_PATH",
+          "switch",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "NamingStrategy",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "host_controller",
+        [
+          "Annotated",
+          "Optional",
+          "Controller",
+          "External",
+          "FOLDER",
+          "FIXED_PATH",
+          "switch_host_controller",
+          "OutputStrategy",
+          "NamingStrategy"
+        ]
+      ]
+    ]
+  },
+  "MulticastGroup": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\vlan_entry.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "address",
+        [
+          "IPvAnyAddress",
+          "FLYNCMacAddress"
+        ]
+      ],
+      [
+        "ports",
+        [
+          "List",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "VLANEntry": {
+    "domain": "flync_4_ecu",
+    "file": "data/flync_source\\flync_4_ecu\\vlan_entry.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "Annotated",
+          "int",
+          "AfterValidator",
+          "validate_vlan_id",
+          "common_validators"
+        ]
+      ],
+      [
+        "default_priority",
+        [
+          "int"
+        ]
+      ],
+      [
+        "ports",
+        [
+          "List",
+          "str"
+        ]
+      ],
+      [
+        "multicast",
+        [
+          "List",
+          "MulticastGroup"
+        ]
+      ]
+    ]
+  },
+  "BaseVersion": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "version_schema",
+        [
+          "Optional",
+          "Literal",
+          "semver",
+          "pep440"
+        ]
+      ],
+      [
+        "version",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SoftwareBaseMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseVersion"
+    ],
+    "fields": []
+  },
+  "HardwareBaseMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseVersion"
+    ],
+    "fields": [
+      [
+        "supplier",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "product_id",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "BaseMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "str"
+        ]
+      ],
+      [
+        "author",
+        [
+          "str"
+        ]
+      ],
+      [
+        "compatible_flync_version",
+        [
+          "BaseVersion"
+        ]
+      ],
+      [
+        "extensions",
+        [
+          "Optional",
+          "Dict",
+          "str",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SystemMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseMetadata"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "system"
+        ]
+      ],
+      [
+        "oem",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "platform",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "variant",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "release",
+        [
+          "BaseVersion"
+        ]
+      ]
+    ]
+  },
+  "ECUMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseMetadata"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "ecu"
+        ]
+      ],
+      [
+        "hardware",
+        [
+          "Optional",
+          "HardwareBaseMetadata"
+        ]
+      ],
+      [
+        "software",
+        [
+          "Optional",
+          "SoftwareBaseMetadata"
+        ]
+      ]
+    ]
+  },
+  "EmbeddedMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseMetadata"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "embedded"
+        ]
+      ],
+      [
+        "hardware",
+        [
+          "Optional",
+          "HardwareBaseMetadata"
+        ]
+      ],
+      [
+        "app",
+        [
+          "Optional",
+          "SoftwareBaseMetadata"
+        ]
+      ],
+      [
+        "bootloader",
+        [
+          "Optional",
+          "SoftwareBaseMetadata"
+        ]
+      ],
+      [
+        "target_system",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SocketsPerVLANMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseMetadata"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "sockets_per_vlan"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPServiceMetadata": {
+    "domain": "flync_4_metadata",
+    "file": "data/flync_source\\flync_4_metadata\\metadata.py",
+    "bases": [
+      "BaseMetadata"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "someip_service"
+        ]
+      ]
+    ]
+  },
+  "EffectiveMember": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "NamedTuple"
+    ],
+    "fields": [
+      [
+        "group",
+        [
+          "str"
+        ]
+      ],
+      [
+        "entity_kind",
+        [
+          "Literal",
+          "ecu",
+          "controller",
+          "app",
+          "bus"
+        ]
+      ],
+      [
+        "entity_path",
+        [
+          "str"
+        ]
+      ],
+      [
+        "ecu_name",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "participant",
+          "observer"
+        ]
+      ],
+      [
+        "relevance_bit",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "AnnouncementPhaseTiming": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "duration_ms",
+        [
+          "int"
+        ]
+      ],
+      [
+        "burst_count",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "burst_cycle_time_ms",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SleepTiming": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "timeout_ms",
+        [
+          "int"
+        ]
+      ],
+      [
+        "wait_before_sleep_ms",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "GroupTiming": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "cycle_time_ms",
+        [
+          "int"
+        ]
+      ],
+      [
+        "announcement",
+        [
+          "Optional",
+          "AnnouncementPhaseTiming"
+        ]
+      ],
+      [
+        "sleep",
+        [
+          "SleepTiming"
+        ]
+      ],
+      [
+        "extensions",
+        [
+          "Optional",
+          "Dict",
+          "str",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "StateManagementGroup": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "nm_pdu",
+        [
+          "str"
+        ]
+      ],
+      [
+        "timing_profile",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "extensions",
+        [
+          "Optional",
+          "Dict",
+          "str",
+          "str"
+        ]
+      ],
+      [
+        "_effective_members",
+        [
+          "List",
+          "EffectiveMember"
+        ]
+      ]
+    ]
+  },
+  "StateMembershipRef": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "group",
+        [
+          "str"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "participant",
+          "observer"
+        ]
+      ],
+      [
+        "relevance_bits",
+        [
+          "Optional",
+          "List",
+          "str"
+        ]
+      ],
+      [
+        "extensions",
+        [
+          "Optional",
+          "Dict",
+          "str",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "StateManagementConfig": {
+    "domain": "flync_4_nm",
+    "file": "data/flync_source\\flync_4_nm\\state_management.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "groups",
+        [
+          "Annotated",
+          "List",
+          "StateManagementGroup",
+          "External",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "SINGLE_FILE",
+          "common_validators",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "timing_profiles",
+        [
+          "Annotated",
+          "List",
+          "GroupTiming",
+          "External",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "SINGLE_FILE",
+          "common_validators",
+          "OutputStrategy"
+        ]
+      ]
+    ]
+  },
+  "E2EConfig": {
+    "domain": "flync_4_safety",
+    "file": "data/flync_source\\flync_4_safety\\e2e.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profile",
+        [
+          "str"
+        ]
+      ],
+      [
+        "data_id",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "FirewallRule": {
+    "domain": "flync_4_security",
+    "file": "data/flync_source\\flync_4_security\\firewall.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "action",
+        [
+          "Literal",
+          "reject",
+          "accept",
+          "drop"
+        ]
+      ],
+      [
+        "pattern",
+        [
+          "FrameFilter"
+        ]
+      ]
+    ]
+  },
+  "Firewall": {
+    "domain": "flync_4_security",
+    "file": "data/flync_source\\flync_4_security\\firewall.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "default_action",
+        [
+          "Optional",
+          "Literal",
+          "reject",
+          "accept",
+          "drop"
+        ]
+      ],
+      [
+        "input_rules",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "FirewallRule",
+          "common_validators"
+        ]
+      ],
+      [
+        "output_rules",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "FirewallRule",
+          "common_validators"
+        ]
+      ],
+      [
+        "forward_rules",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "FirewallRule",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "IntegrityWithoutConfidentiality": {
+    "domain": "flync_4_security",
+    "file": "data/flync_source\\flync_4_security\\macsec.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "integrity_without_confidentiality"
+        ]
+      ],
+      [
+        "offset_preference",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "IntegrityWithConfidentiality": {
+    "domain": "flync_4_security",
+    "file": "data/flync_source\\flync_4_security\\macsec.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "integrity_with_confidentiality"
+        ]
+      ],
+      [
+        "offset_preference",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "MACsecConfig": {
+    "domain": "flync_4_security",
+    "file": "data/flync_source\\flync_4_security\\macsec.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "vlan_bypass",
+        [
+          "List",
+          "Annotated",
+          "int",
+          "Field",
+          "AfterValidator",
+          "validate_vlan_id"
+        ]
+      ],
+      [
+        "mka_enabled",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "hello_time",
+        [
+          "int"
+        ]
+      ],
+      [
+        "bounded_hello_time",
+        [
+          "int"
+        ]
+      ],
+      [
+        "life_time",
+        [
+          "int"
+        ]
+      ],
+      [
+        "sak_retire_time",
+        [
+          "int"
+        ]
+      ],
+      [
+        "hello_time_rampup",
+        [
+          "List",
+          "int"
+        ]
+      ],
+      [
+        "sak_rekey_time",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "macsec_mode",
+        [
+          "Literal",
+          "disabled",
+          "integrity",
+          "integrity_confidentiality"
+        ]
+      ],
+      [
+        "kay_on",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "key_role",
+        [
+          "Literal",
+          "key_server_always",
+          "key_server_never"
+        ]
+      ],
+      [
+        "delay_protect",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "participant_activation",
+        [
+          "Literal",
+          "disabled",
+          "onoperup",
+          "always"
+        ]
+      ],
+      [
+        "sci_included",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "cipher_preference",
+        [
+          "List",
+          "DiscriminatedCipher"
+        ]
+      ]
+    ]
+  },
+  "CANFrameEgress": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\forwarder.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "egress_type",
+        [
+          "Literal",
+          "can_frame"
+        ]
+      ],
+      [
+        "bus_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "frame_ref",
+        [
+          "int"
+        ]
+      ],
+      [
+        "extract_pdu_ref",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "EthSocketEgress": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\forwarder.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "egress_type",
+        [
+          "Literal",
+          "eth_socket"
+        ]
+      ],
+      [
+        "socket_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "extract_pdu_ref",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "ForwarderEgress": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\forwarder.py",
+    "bases": [
+      "RootModel"
+    ],
+    "fields": [
+      [
+        "root",
+        [
+          "CANFrameEgress",
+          "EthSocketEgress"
+        ]
+      ]
+    ]
+  },
+  "PDUForwarder": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\forwarder.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "pdu_forwarder"
+        ]
+      ],
+      [
+        "pdu_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "egresses",
+        [
+          "List",
+          "ForwarderEgress"
+        ]
+      ]
+    ]
+  },
+  "CANFrameForwarder": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\forwarder.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "frame_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "egresses",
+        [
+          "List",
+          "ForwarderEgress"
+        ]
+      ]
+    ]
+  },
+  "FrameEventTiming": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "final_repetitions",
+        [
+          "int"
+        ]
+      ],
+      [
+        "repeating_time_range",
+        [
+          "float"
+        ]
+      ]
+    ]
+  },
+  "FrameCyclicTiming": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "cycle",
+        [
+          "float"
+        ]
+      ]
+    ]
+  },
+  "FrameTransmissionTiming": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "debounce_time",
+        [
+          "Optional",
+          "float"
+        ]
+      ],
+      [
+        "cyclic_timings",
+        [
+          "List",
+          "FrameCyclicTiming"
+        ]
+      ],
+      [
+        "event_timings",
+        [
+          "List",
+          "FrameEventTiming"
+        ]
+      ]
+    ]
+  },
+  "Frame": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "length",
+        [
+          "int"
+        ]
+      ],
+      [
+        "frame_usage",
+        [
+          "Optional",
+          "Literal",
+          "application",
+          "bap",
+          "diag_request",
+          "diag_response",
+          "diag_state",
+          "network_management",
+          "other",
+          "service",
+          "tpl",
+          "xcp_pre_configured",
+          "xcp_runtime_configured"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "packed_pdus",
+        [
+          "List",
+          "PDUInstance"
+        ]
+      ]
+    ]
+  },
+  "CANFrameBase": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "Frame"
+    ],
+    "fields": [
+      [
+        "can_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "id_format",
+        [
+          "Literal",
+          "standard_11bit",
+          "extended_29bit"
+        ]
+      ],
+      [
+        "timing",
+        [
+          "Optional",
+          "FrameTransmissionTiming"
+        ]
+      ]
+    ]
+  },
+  "CANFrame": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "CANFrameBase"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "can"
+        ]
+      ],
+      [
+        "is_remote_frame",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "length",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "CANFDFrame": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "CANFrameBase"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "can_fd"
+        ]
+      ],
+      [
+        "bit_rate_switch",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "error_state_indicator",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "length",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "LINFrame": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\frame.py",
+    "bases": [
+      "Frame"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "lin"
+        ]
+      ],
+      [
+        "lin_id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "checksum_type",
+        [
+          "Literal",
+          "classic",
+          "enhanced"
+        ]
+      ],
+      [
+        "length",
+        [
+          "int"
+        ]
+      ],
+      [
+        "timing",
+        [
+          "Optional",
+          "FrameTransmissionTiming"
+        ]
+      ]
+    ]
+  },
+  "PDU": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "length",
+        [
+          "int"
+        ]
+      ],
+      [
+        "pdu_usage",
+        [
+          "Optional",
+          "Literal",
+          "application",
+          "bap",
+          "diag_request",
+          "diag_response",
+          "diag_state",
+          "network_management",
+          "other",
+          "service",
+          "tpl",
+          "xcp_pre_configured",
+          "xcp_runtime_configured"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "PDUInstance": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "pdu_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "bit_position",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "update_bit_position",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "StandardPDU": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "PDU"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "standard"
+        ]
+      ],
+      [
+        "signals",
+        [
+          "List",
+          "SignalInstance"
+        ]
+      ],
+      [
+        "signal_groups",
+        [
+          "List",
+          "SignalGroupInstance"
+        ]
+      ]
+    ]
+  },
+  "MuxGroup": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "selector_value",
+        [
+          "int"
+        ]
+      ],
+      [
+        "pdu",
+        [
+          "PDUInstance"
+        ]
+      ]
+    ]
+  },
+  "MultiplexedPDU": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "PDU"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "multiplexed"
+        ]
+      ],
+      [
+        "selector_signal",
+        [
+          "SignalInstance"
+        ]
+      ],
+      [
+        "static_group",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "single_to_list",
+          "List",
+          "PDUInstance"
+        ]
+      ],
+      [
+        "mux_groups",
+        [
+          "List",
+          "MuxGroup"
+        ]
+      ]
+    ]
+  },
+  "ContainedPDURef": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "header_id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "pdu_ref",
+        [
+          "str"
+        ]
+      ],
+      [
+        "offset",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "ContainerPDUHeader": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "id_length_bits",
+        [
+          "int"
+        ]
+      ],
+      [
+        "length_field_bits",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "ContainerPDU": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu.py",
+    "bases": [
+      "PDU"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "container"
+        ]
+      ],
+      [
+        "pdu_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "header",
+        [
+          "ContainerPDUHeader"
+        ]
+      ],
+      [
+        "contained_pdus",
+        [
+          "List",
+          "ContainedPDURef"
+        ]
+      ]
+    ]
+  },
+  "PDUSender": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu_deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "pdu_sender"
+        ]
+      ],
+      [
+        "pdu_ref",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "PDUReceiver": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\pdu_deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "pdu_receiver"
+        ]
+      ],
+      [
+        "pdu_ref",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SignalDataType": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "str",
+      "Enum"
+    ],
+    "fields": []
+  },
+  "InstancePlacement": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "bit_position",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "update_indication_bit_position",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ]
+    ]
+  },
+  "Signal": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "bit_length",
+        [
+          "int"
+        ]
+      ],
+      [
+        "data_type",
+        [
+          "SignalDataType"
+        ]
+      ],
+      [
+        "factor",
+        [
+          "float"
+        ]
+      ],
+      [
+        "offset",
+        [
+          "float"
+        ]
+      ],
+      [
+        "lower_limit",
+        [
+          "Optional",
+          "float"
+        ]
+      ],
+      [
+        "upper_limit",
+        [
+          "Optional",
+          "float"
+        ]
+      ],
+      [
+        "unit",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "initial_value",
+        [
+          "Optional",
+          "str",
+          "bytes",
+          "float",
+          "int"
+        ]
+      ],
+      [
+        "value_encoding",
+        [
+          "Optional",
+          "ValueEncoding"
+        ]
+      ]
+    ]
+  },
+  "SignalInstance": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "InstancePlacement"
+    ],
+    "fields": [
+      [
+        "signal",
+        [
+          "Signal"
+        ]
+      ]
+    ]
+  },
+  "SignalGroup": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "signals",
+        [
+          "List",
+          "SignalInstance"
+        ]
+      ]
+    ]
+  },
+  "SignalGroupInstance": {
+    "domain": "flync_4_signal",
+    "file": "data/flync_source\\flync_4_signal\\signal.py",
+    "bases": [
+      "InstancePlacement"
+    ],
+    "fields": [
+      [
+        "signal_group",
+        [
+          "SignalGroup"
+        ]
+      ]
+    ]
+  },
+  "Layer4Endpoint": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "protocol",
+        [
+          "Literal",
+          "UDP",
+          "TCP"
+        ]
+      ],
+      [
+        "port",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "BaseUDPDeployment": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "Layer4Endpoint"
+    ],
+    "fields": [
+      [
+        "protocol",
+        [
+          "Literal",
+          "UDP"
+        ]
+      ]
+    ]
+  },
+  "MulticastEndpoint": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "BaseUDPDeployment"
+    ],
+    "fields": [
+      [
+        "ip_address",
+        [
+          "Annotated",
+          "IPvAnyAddress",
+          "is_ip_multicast"
+        ]
+      ]
+    ]
+  },
+  "MulticastSDEndpoint": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "MulticastEndpoint"
+    ],
+    "fields": [
+      [
+        "ip_ttl",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "UDPDeployment": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "BaseUDPDeployment"
+    ],
+    "fields": [
+      [
+        "multicast",
+        [
+          "Optional",
+          "MulticastEndpoint"
+        ]
+      ]
+    ]
+  },
+  "TCPDeployment": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "Layer4Endpoint"
+    ],
+    "fields": [
+      [
+        "protocol",
+        [
+          "Literal",
+          "TCP"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPSDDeployment": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "someip_sd"
+        ]
+      ],
+      [
+        "multicast",
+        [
+          "Optional",
+          "MulticastSDEndpoint"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPServiceDeployment": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "DeploymentTypes"
+        ]
+      ],
+      [
+        "service",
+        [
+          "Annotated",
+          "int",
+          "Reference",
+          "_service_ref"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "instance_id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "someip_sd_timings_profile",
+        [
+          "str"
+        ]
+      ],
+      [
+        "_service_ref",
+        [
+          "SOMEIPServiceInterface"
+        ]
+      ],
+      [
+        "_sd_timing_ref",
+        [
+          "SDTimings"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPServiceConsumer": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "SOMEIPServiceDeployment"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "someip_consumer"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "consumed_eventgroups",
+        [
+          "Optional",
+          "List",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPEventgroupMulticastConfig": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ip_address",
+        [
+          "Annotated",
+          "IPvAnyAddress",
+          "AfterValidator",
+          "validate_ip_multicast",
+          "common_validators"
+        ]
+      ],
+      [
+        "port",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "threshold",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "eventgroups",
+        [
+          "List",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPServiceProvider": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\deployment.py",
+    "bases": [
+      "SOMEIPServiceDeployment"
+    ],
+    "fields": [
+      [
+        "deployment_type",
+        [
+          "Literal",
+          "someip_provider"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "minor_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "provided_eventgroups",
+        [
+          "Optional",
+          "List",
+          "str"
+        ]
+      ],
+      [
+        "multicast_config",
+        [
+          "Optional",
+          "List",
+          "SOMEIPEventgroupMulticastConfig"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPFieldTimings": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profile_id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "field"
+        ]
+      ],
+      [
+        "getter_req_debounce",
+        [
+          "int"
+        ]
+      ],
+      [
+        "getter_req_max_retention",
+        [
+          "int"
+        ]
+      ],
+      [
+        "getter_res_max_retention",
+        [
+          "int"
+        ]
+      ],
+      [
+        "setter_req_debounce",
+        [
+          "int"
+        ]
+      ],
+      [
+        "setter_req_max_retention",
+        [
+          "int"
+        ]
+      ],
+      [
+        "setter_res_max_retention",
+        [
+          "int"
+        ]
+      ],
+      [
+        "notifier_debounce",
+        [
+          "int"
+        ]
+      ],
+      [
+        "notifier_max_retention",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPEventTimings": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profile_id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "event"
+        ]
+      ],
+      [
+        "debounce",
+        [
+          "int"
+        ]
+      ],
+      [
+        "max_retention",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPMethodTimings": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profile_id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "method"
+        ]
+      ],
+      [
+        "req_debounce",
+        [
+          "int"
+        ]
+      ],
+      [
+        "req_max_retention",
+        [
+          "int"
+        ]
+      ],
+      [
+        "res_max_retention",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPTimingProfile": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profiles",
+        [
+          "Annotated",
+          "List",
+          "SOMEIPEvenTimingsProfilesUnion",
+          "Field",
+          "List of timing profiles for SOME/IP"
+        ]
+      ],
+      [
+        "defaults",
+        [
+          "Annotated",
+          "List",
+          "SOMEIPEvenTimingsProfilesUnion",
+          "Field",
+          "List of default timing profiles for SOME/IP"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPField": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "parameters",
+        [
+          "Annotated",
+          "Optional",
+          "Field",
+          "List",
+          "SOMEIPParameter",
+          "name of the parameter"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "notifier_id",
+        [
+          "Optional",
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "setter_id",
+        [
+          "Optional",
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "getter_id",
+        [
+          "Optional",
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "reliable",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "notifier_e2e",
+        [
+          "Optional",
+          "E2EConfig"
+        ]
+      ],
+      [
+        "someip_timing",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPParameter": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "datatype",
+        [
+          "AllTypes"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPEvent": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "reliable",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "e2e",
+        [
+          "Optional",
+          "E2EConfig"
+        ]
+      ],
+      [
+        "parameters",
+        [
+          "Annotated",
+          "Optional",
+          "Field",
+          "List",
+          "SOMEIPParameter",
+          "name of the parameter"
+        ]
+      ],
+      [
+        "someip_timing",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPEventgroup": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "events",
+        [
+          "Annotated",
+          "List",
+          "conset",
+          "SOMEIPEvent",
+          "SOMEIPField",
+          "SOMEIPEvent",
+          "SOMEIPField"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPTP": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "enabled",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "max_segment_length",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPMethod": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "request_response",
+          "fire_and_forget"
+        ]
+      ],
+      [
+        "id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "reliable",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "someip_tp",
+        [
+          "Optional",
+          "SOMEIPTP"
+        ]
+      ],
+      [
+        "input_parameters",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "SOMEIPParameter",
+          "common_validators"
+        ]
+      ],
+      [
+        "someip_timing",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPRequestResponseMethod": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "SOMEIPMethod"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "request_response"
+        ]
+      ],
+      [
+        "output_parameters",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "SOMEIPParameter",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPFireAndForgetMethod": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "SOMEIPMethod"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "fire_and_forget"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPServiceInterface": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "id",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "major_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "minor_version",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "fields",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "SOMEIPField",
+          "common_validators"
+        ]
+      ],
+      [
+        "events",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "SOMEIPEvent",
+          "common_validators"
+        ]
+      ],
+      [
+        "eventgroups",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "SOMEIPEventgroup",
+          "common_validators"
+        ]
+      ],
+      [
+        "methods",
+        [
+          "Annotated",
+          "List",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "SOMEIPFireAndForgetMethod",
+          "SOMEIPRequestResponseMethod",
+          "common_validators"
+        ]
+      ],
+      [
+        "meta",
+        [
+          "SOMEIPServiceMetadata"
+        ]
+      ]
+    ]
+  },
+  "SDTimings": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "profile_id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "initial_delay_min",
+        [
+          "int"
+        ]
+      ],
+      [
+        "initial_delay_max",
+        [
+          "int"
+        ]
+      ],
+      [
+        "repetitions_base_delay",
+        [
+          "int"
+        ]
+      ],
+      [
+        "repetitions_max",
+        [
+          "int"
+        ]
+      ],
+      [
+        "request_response_delay_min",
+        [
+          "int"
+        ]
+      ],
+      [
+        "request_response_delay_max",
+        [
+          "int"
+        ]
+      ],
+      [
+        "offer_cyclic_delay",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "offer_ttl",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "find_ttl",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "subscribe_ttl",
+        [
+          "Optional",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SDConfig": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ip_address",
+        [
+          "Annotated",
+          "IPvAnyAddress",
+          "AfterValidator",
+          "validate_ip_multicast",
+          "common_validators"
+        ]
+      ],
+      [
+        "port",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "sd_timings",
+        [
+          "List",
+          "SDTimings"
+        ]
+      ]
+    ]
+  },
+  "SOMEIPConfig": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\service_interface.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "version",
+        [
+          "Literal",
+          "1.0"
+        ]
+      ],
+      [
+        "sd_config",
+        [
+          "Annotated",
+          "SDConfig",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "services",
+        [
+          "Annotated",
+          "List",
+          "SOMEIPServiceInterface",
+          "External"
+        ]
+      ],
+      [
+        "someip_timings",
+        [
+          "Annotated",
+          "SOMEIPTimingProfile",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ]
+    ]
+  },
+  "PrimitiveDatatype": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": []
+  },
+  "ComplexDatatype": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": []
+  },
+  "Boolean": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "PrimitiveDatatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "boolean"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "BaseInt": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "PrimitiveDatatype"
+    ],
+    "fields": []
+  },
+  "BaseFloat": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "PrimitiveDatatype"
+    ],
+    "fields": []
+  },
+  "UInt8": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "uint8"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "UInt16": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "uint16"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "UInt32": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "uint32"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "UInt64": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "uint64"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Int8": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "int8"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Int16": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "int16"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Int32": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "int32"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Int64": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseInt"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "int64"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Float32": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "PrimitiveDatatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "float32"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "Float64": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseFloat"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "float64"
+        ]
+      ],
+      [
+        "signed",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "endianness",
+        [
+          "Literal",
+          "BE",
+          "LE"
+        ]
+      ],
+      [
+        "bit_size",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ]
+    ]
+  },
+  "BitfieldEntryValue": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseModel"
+    ],
+    "fields": [
+      [
+        "value",
+        [
+          "int"
+        ]
+      ],
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ]
+    ]
+  },
+  "BitfieldEntry": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "bitposition",
+        [
+          "int"
+        ]
+      ],
+      [
+        "description",
+        [
+          "Optional",
+          "str"
+        ]
+      ],
+      [
+        "values",
+        [
+          "Optional",
+          "List",
+          "BitfieldEntryValue"
+        ]
+      ]
+    ]
+  },
+  "Bitfield": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "bitfield"
+        ]
+      ],
+      [
+        "length",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "fields",
+        [
+          "Optional",
+          "List",
+          "BitfieldEntry"
+        ]
+      ]
+    ]
+  },
+  "EnumEntry": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseModel"
+    ],
+    "fields": [
+      [
+        "value",
+        [
+          "int"
+        ]
+      ],
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "description",
+        [
+          "str"
+        ]
+      ]
+    ]
+  },
+  "Enum": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "enum"
+        ]
+      ],
+      [
+        "base_type",
+        [
+          "Ints"
+        ]
+      ],
+      [
+        "entries",
+        [
+          "List",
+          "EnumEntry"
+        ]
+      ],
+      [
+        "BASE_TYPE_RANGES",
+        [
+          "ClassVar",
+          "dict",
+          "str",
+          "tuple",
+          "int",
+          "int"
+        ]
+      ]
+    ]
+  },
+  "BaseString": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "str"
+        ]
+      ],
+      [
+        "encoding",
+        [
+          "Literal",
+          "UTF-8",
+          "UTF-16BE",
+          "UTF-16LE"
+        ]
+      ]
+    ]
+  },
+  "FixedLengthString": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseString"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "fixed_length_string"
+        ]
+      ],
+      [
+        "length",
+        [
+          "Annotated",
+          "int",
+          "Field"
+        ]
+      ],
+      [
+        "length_of_length_field",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "DynamicLengthString": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "BaseString"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "dynamic_length_string"
+        ]
+      ],
+      [
+        "max_length",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "min_length",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "length_of_length_field",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "bit_alignment",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "ArrayType": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "ComplexDatatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "array"
+        ]
+      ],
+      [
+        "dimensions",
+        [
+          "List",
+          "ArrayDimension"
+        ]
+      ],
+      [
+        "element_type",
+        [
+          "AllTypes"
+        ]
+      ]
+    ]
+  },
+  "ArrayDimension": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "kind",
+        [
+          "Literal",
+          "fixed",
+          "dynamic"
+        ]
+      ],
+      [
+        "length",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "length_of_length_field",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ],
+      [
+        "upper_limit",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "lower_limit",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "bit_alignment",
+        [
+          "Optional",
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "Struct": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "ComplexDatatype"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "struct"
+        ]
+      ],
+      [
+        "members",
+        [
+          "List",
+          "AllTypes"
+        ]
+      ],
+      [
+        "bit_alignment",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "length_of_length_field",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "Typedef": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "ComplexDatatype"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "typedef"
+        ]
+      ],
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "datatyperef",
+        [
+          "AllTypes"
+        ]
+      ]
+    ]
+  },
+  "UnionMember": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Annotated",
+          "AllTypes",
+          "Field",
+          "member datatype (discriminated by its 'type' field)"
+        ]
+      ],
+      [
+        "index",
+        [
+          "Annotated",
+          "int",
+          "Field",
+          "index of the union member"
+        ]
+      ],
+      [
+        "name",
+        [
+          "Annotated",
+          "str",
+          "Field",
+          "name of the union member"
+        ]
+      ],
+      [
+        "mandatory",
+        [
+          "Annotated",
+          "Optional",
+          "bool",
+          "Field",
+          "whether the union member is mandatory"
+        ]
+      ]
+    ]
+  },
+  "Union": {
+    "domain": "flync_4_someip",
+    "file": "data/flync_source\\flync_4_someip\\someip_datatypes.py",
+    "bases": [
+      "Datatype"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "type",
+        [
+          "Literal",
+          "union"
+        ]
+      ],
+      [
+        "members",
+        [
+          "List",
+          "UnionMember"
+        ]
+      ],
+      [
+        "bit_alignment",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "length_of_length_field",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "length_of_type_field",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "BusAttachmentPoint": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\bus_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ecu_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "controller_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "interface_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "role",
+        [
+          "Literal",
+          "can_node",
+          "lin_master",
+          "lin_slave"
+        ]
+      ],
+      [
+        "_interface",
+        [
+          "Optional[CANInterface | LINMasterInterface | LINSlaveInterface]"
+        ]
+      ],
+      [
+        "_ecu",
+        [
+          "Optional[ECU]"
+        ]
+      ]
+    ]
+  },
+  "BusTopology": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\bus_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "bus_name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "bus_type",
+        [
+          "Literal",
+          "can",
+          "lin"
+        ]
+      ],
+      [
+        "attachments",
+        [
+          "List",
+          "BusAttachmentPoint"
+        ]
+      ],
+      [
+        "_bus",
+        [
+          "Optional[CANBus | LINBus]"
+        ]
+      ]
+    ]
+  },
+  "CANBusTopology": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\bus_topology.py",
+    "bases": [
+      "BusTopology"
+    ],
+    "fields": [
+      [
+        "bus_type",
+        [
+          "Literal",
+          "can"
+        ]
+      ]
+    ]
+  },
+  "LINBusTopology": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\bus_topology.py",
+    "bases": [
+      "BusTopology"
+    ],
+    "fields": [
+      [
+        "bus_type",
+        [
+          "Literal",
+          "lin"
+        ]
+      ]
+    ]
+  },
+  "ExternalConnection": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\ethernet_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "ecu_port_to_ecu_port"
+        ]
+      ],
+      [
+        "id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "ecu1_port_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_ecu1_port"
+        ]
+      ],
+      [
+        "ecu2_port_name",
+        [
+          "Annotated",
+          "str",
+          "Reference",
+          "_ecu2_port"
+        ]
+      ],
+      [
+        "_ecu1_port",
+        [
+          "Optional",
+          "ECUPort"
+        ]
+      ],
+      [
+        "_ecu2_port",
+        [
+          "Optional",
+          "ECUPort"
+        ]
+      ]
+    ]
+  },
+  "EthernetTopology": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\ethernet_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "connections",
+        [
+          "List",
+          "ExternalConnection"
+        ]
+      ]
+    ]
+  },
+  "FLYNCTopology": {
+    "domain": "flync_4_topology",
+    "file": "data/flync_source\\flync_4_topology\\ethernet_topology.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ethernet_topology",
+        [
+          "Annotated",
+          "Optional",
+          "EthernetTopology",
+          "External",
+          "SINGLE_FILE",
+          "OMMIT_ROOT",
+          "OutputStrategy",
+          "OutputStrategy"
+        ]
+      ],
+      [
+        "can_bus_topology",
+        [
+          "List",
+          "CANBusTopology"
+        ]
+      ],
+      [
+        "lin_bus_topology",
+        [
+          "List",
+          "LINBusTopology"
+        ]
+      ]
+    ]
+  },
+  "ATSInstance": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "committed_information_rate",
+        [
+          "int"
+        ]
+      ],
+      [
+        "committed_burst_size",
+        [
+          "int"
+        ]
+      ],
+      [
+        "max_residence_time",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "ATSShaper": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "ats"
+        ]
+      ]
+    ]
+  },
+  "CBSShaper": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "cbs"
+        ]
+      ],
+      [
+        "idleslope",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "SingleRateTwoColorMarker": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "single_rate_two_color"
+        ]
+      ],
+      [
+        "cir",
+        [
+          "int"
+        ]
+      ],
+      [
+        "cbs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "eir",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "ebs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "coupling",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "SingleRateThreeColorMarker": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "single_rate_three_color"
+        ]
+      ],
+      [
+        "cir",
+        [
+          "int"
+        ]
+      ],
+      [
+        "cbs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "eir",
+        [
+          "Literal"
+        ]
+      ],
+      [
+        "ebs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "coupling",
+        [
+          "Literal"
+        ]
+      ]
+    ]
+  },
+  "DoubleRateThreeColorMarker": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "double_rate_three_color"
+        ]
+      ],
+      [
+        "cir",
+        [
+          "int"
+        ]
+      ],
+      [
+        "cbs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "eir",
+        [
+          "int"
+        ]
+      ],
+      [
+        "ebs",
+        [
+          "int"
+        ]
+      ],
+      [
+        "coupling",
+        [
+          "bool"
+        ]
+      ]
+    ]
+  },
+  "FrameFilter": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "ethertype",
+        [
+          "Optional",
+          "Annotated",
+          "Ethertype",
+          "PlainSerializer",
+          "serialize_ethertype",
+          "BeforeValidator",
+          "validate_ethertype_input",
+          "List",
+          "Ethertype"
+        ]
+      ],
+      [
+        "src_mac",
+        [
+          "Optional",
+          "str",
+          "MACAddressEntry",
+          "List",
+          "str",
+          "MACAddressEntry"
+        ]
+      ],
+      [
+        "dst_mac",
+        [
+          "Optional",
+          "str",
+          "MACAddressEntry",
+          "List",
+          "str",
+          "MACAddressEntry"
+        ]
+      ],
+      [
+        "vlan_tagged",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "vlanid",
+        [
+          "Optional",
+          "int",
+          "ValueRange",
+          "List",
+          "int",
+          "ValueRange"
+        ]
+      ],
+      [
+        "pcp",
+        [
+          "Optional",
+          "int",
+          "List",
+          "int"
+        ]
+      ],
+      [
+        "src_ipv4",
+        [
+          "Optional",
+          "IPv4AddressEntry",
+          "IPv4Address",
+          "List",
+          "IPv4AddressEntry",
+          "IPv4Address"
+        ]
+      ],
+      [
+        "dst_ipv4",
+        [
+          "Optional",
+          "IPv4AddressEntry",
+          "IPv4Address",
+          "List",
+          "IPv4AddressEntry",
+          "IPv4Address"
+        ]
+      ],
+      [
+        "src_ipv6",
+        [
+          "Optional",
+          "IPv6AddressEntry",
+          "IPv6Address",
+          "List",
+          "IPv6AddressEntry",
+          "IPv6Address"
+        ]
+      ],
+      [
+        "dst_ipv6",
+        [
+          "Optional",
+          "IPv6AddressEntry",
+          "IPv6Address",
+          "List",
+          "IPv6AddressEntry",
+          "IPv6Address"
+        ]
+      ],
+      [
+        "protocol",
+        [
+          "Optional",
+          "Literal",
+          "tcp",
+          "Literal",
+          "udp"
+        ]
+      ],
+      [
+        "src_port",
+        [
+          "Optional",
+          "int",
+          "ValueRange",
+          "List",
+          "int",
+          "ValueRange"
+        ]
+      ],
+      [
+        "dst_port",
+        [
+          "Optional",
+          "int",
+          "ValueRange",
+          "List",
+          "int",
+          "ValueRange"
+        ]
+      ]
+    ]
+  },
+  "Stream": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "stream_identification",
+        [
+          "List",
+          "FrameFilter"
+        ]
+      ],
+      [
+        "drop_at_ingress",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "max_sdu_size",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "policer",
+        [
+          "Optional",
+          "DoubleRateThreeColorMarker",
+          "SingleRateTwoColorMarker",
+          "SingleRateThreeColorMarker"
+        ]
+      ],
+      [
+        "ipv",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "ats",
+        [
+          "Optional",
+          "ATSInstance"
+        ]
+      ]
+    ]
+  },
+  "TrafficClass": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "name",
+        [
+          "str"
+        ]
+      ],
+      [
+        "priority",
+        [
+          "int"
+        ]
+      ],
+      [
+        "frame_priority_values",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "int",
+          "common_validators"
+        ]
+      ],
+      [
+        "internal_priority_values",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "int",
+          "common_validators"
+        ]
+      ],
+      [
+        "selection_mechanisms",
+        [
+          "Optional",
+          "CBSShaper",
+          "ATSShaper"
+        ]
+      ]
+    ]
+  },
+  "HTBFilter": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FrameFilter"
+    ],
+    "fields": [
+      [
+        "filter_priority",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "ChildClass": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "classid",
+        [
+          "int"
+        ]
+      ],
+      [
+        "rate",
+        [
+          "int"
+        ]
+      ],
+      [
+        "ceil",
+        [
+          "int"
+        ]
+      ],
+      [
+        "priority",
+        [
+          "int"
+        ]
+      ],
+      [
+        "filter",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "HTBFilter",
+          "common_validators"
+        ]
+      ],
+      [
+        "child_classes",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "ChildClass",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "HTBInstance": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\qos.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "root_id",
+        [
+          "str"
+        ]
+      ],
+      [
+        "default_class",
+        [
+          "Optional",
+          "int"
+        ]
+      ],
+      [
+        "child_classes",
+        [
+          "list",
+          "ChildClass"
+        ]
+      ]
+    ]
+  },
+  "PTPTimeTransmitterConfig": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\timesync.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "time_transmitter"
+        ]
+      ],
+      [
+        "log_tx_period",
+        [
+          "int"
+        ]
+      ],
+      [
+        "two_step",
+        [
+          "Optional",
+          "bool"
+        ]
+      ],
+      [
+        "tlv",
+        [
+          "Annotated",
+          "Optional",
+          "BeforeValidator",
+          "none_to_empty_list",
+          "List",
+          "str",
+          "common_validators"
+        ]
+      ]
+    ]
+  },
+  "PTPTimeReceiverConfig": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\timesync.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "type",
+        [
+          "Literal",
+          "time_receiver"
+        ]
+      ],
+      [
+        "sync_timeout",
+        [
+          "int"
+        ]
+      ],
+      [
+        "sync_followup_timeout",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "PTPPdelayConfig": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\timesync.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "log_tx_period",
+        [
+          "int"
+        ]
+      ]
+    ]
+  },
+  "PTPPort": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\timesync.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "domain_id",
+        [
+          "int"
+        ]
+      ],
+      [
+        "src_port_identity",
+        [
+          "int"
+        ]
+      ],
+      [
+        "sync_config",
+        [
+          "PTPTimeTransmitterConfig",
+          "PTPTimeReceiverConfig"
+        ]
+      ],
+      [
+        "pdelay_config",
+        [
+          "Optional",
+          "PTPPdelayConfig"
+        ]
+      ]
+    ]
+  },
+  "PTPConfig": {
+    "domain": "flync_4_tsn",
+    "file": "data/flync_source\\flync_4_tsn\\timesync.py",
+    "bases": [
+      "FLYNCBaseModel"
+    ],
+    "fields": [
+      [
+        "cmlds_linkport_enabled",
+        [
+          "bool"
+        ]
+      ],
+      [
+        "ptp_ports",
+        [
+          "List",
+          "PTPPort"
+        ]
+      ]
+    ]
+  }
+}
