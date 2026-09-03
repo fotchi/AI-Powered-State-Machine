@@ -1,0 +1,600 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-05T06:48:43.155442+00:00",
+    "flync_commit_sha": "851a70b4a9a3b32a50b6f041d6f3a0981b79b4fa",
+    "total_scenarios": 64,
+    "submodels_covered": [
+      "cross_module (flync_4_communication + flync_4_ecu)",
+      "cross_module (flync_4_signal + flync_4_communication + flync_4_ecu)",
+      "flync_4_app",
+      "flync_4_bus",
+      "flync_4_communication",
+      "flync_4_ecu",
+      "flync_4_metadata",
+      "flync_4_nm",
+      "flync_4_security",
+      "flync_4_signal",
+      "flync_4_someip",
+      "flync_4_topology",
+      "flync_4_tsn"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "SC-APP-001",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid App Definition with Service References",
+      "description": "Verify a valid App configuration file in the top-level apps directory containing valid ServiceConsumerReference and ServiceProviderReference elements mapping to existing transport services.",
+      "expected_result": "The application configuration is successfully parsed and validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-002",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Duplicate Application Binding in Controller",
+      "description": "Verify that defining duplicate bindings for the same application within a single controller's app_bindings.flync.yaml file is detected and rejected.",
+      "expected_result": "Validation fails due to duplicate application binding on the same controller.",
+      "injected_fault": "Duplicate application reference in app_bindings.flync.yaml"
+    },
+    {
+      "id": "SC-APP-003",
+      "submodel": "flync_4_app",
+      "type": "Boundary",
+      "title": "App Definition with Empty Service References",
+      "description": "Verify the boundary case where an App configuration file is defined with empty service consumer and provider reference lists.",
+      "expected_result": "The configuration is valid, representing an application with no transport service mappings.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-005",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid Controller App Bindings",
+      "description": "Verify that an ECU controller successfully binds multiple valid applications defined in the top-level apps directory using app_bindings.flync.yaml.",
+      "expected_result": "The app bindings are successfully validated and associated with the controller.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-006",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "App Binding Referencing Non-Existent App",
+      "description": "Verify that app_bindings.flync.yaml is rejected if it references an application name that does not exist as a file in the top-level apps directory.",
+      "expected_result": "Validation fails due to a dangling application reference.",
+      "injected_fault": "Unresolved application reference in app_bindings.flync.yaml"
+    },
+    {
+      "id": "SC-BUS-001",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "Valid CAN Bus Configuration",
+      "description": "Test a valid CAN bus configuration containing a unique bus name, participating nodes, and inline frames referencing valid PDUs by pdu_ref.",
+      "expected_result": "The CAN bus configuration is successfully validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-002",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "Invalid Standard CAN ID Range",
+      "description": "Test a CAN bus configuration where a standard CAN frame is configured with an out-of-range ID of 2048 (maximum is 2047).",
+      "expected_result": "The configuration is rejected because the standard CAN ID exceeds the 11-bit limit (0-2047).",
+      "injected_fault": "Standard CAN frame ID set to 2048"
+    },
+    {
+      "id": "SC-BUS-003",
+      "submodel": "flync_4_bus",
+      "type": "Boundary",
+      "title": "CAN FD Maximum Payload Boundary",
+      "description": "Test a CAN FD bus configuration with a frame payload at the maximum boundary of 64 bytes.",
+      "expected_result": "The configuration is successfully validated with a 64-byte CAN FD frame payload.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-004",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "Valid LIN Bus Configuration",
+      "description": "Test a valid LIN bus configuration containing exactly one master node, slave nodes, and schedule tables referencing inline-defined frames.",
+      "expected_result": "The LIN bus configuration is successfully validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-005",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "LIN Bus with Multiple Master Nodes",
+      "description": "Test a LIN bus configuration containing more than one master node, violating the single-master rule.",
+      "expected_result": "The configuration is rejected because a LIN bus must have exactly one master node.",
+      "injected_fault": "Configuring two master nodes on a single LIN bus"
+    },
+    {
+      "id": "SC-BUS-006",
+      "submodel": "flync_4_bus",
+      "type": "Boundary",
+      "title": "LIN Bus Maximum Slave Nodes Boundary",
+      "description": "Test a LIN bus configuration with the maximum limit of 16 slave nodes.",
+      "expected_result": "The configuration is successfully validated with exactly 16 slave nodes.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-COMMUNICATION-001",
+      "submodel": "flync_4_communication",
+      "type": "Positive",
+      "title": "Valid TCP Profile Configuration with Standard Options",
+      "description": "Verify that a TCP profile defined in tcp_profiles.flync.yaml with valid TCPOption parameters (such as a valid port within the 1024-65535 range and standard keep-alive options) is successfully parsed and validated.",
+      "expected_result": "The configuration is parsed successfully without errors, and the TCP profile is correctly registered.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-COMMUNICATION-002",
+      "submodel": "flync_4_communication",
+      "type": "Negative",
+      "title": "Invalid TCP Port Option Value",
+      "description": "Verify that defining a TCP profile with an invalid port number (e.g., 70000, which exceeds the maximum 16-bit port range of 65535) triggers a validation error.",
+      "expected_result": "Validation fails with an error indicating the port number is out of the valid 0-65535 range.",
+      "injected_fault": "TCP port number set to 70000 in the TCP profile configuration"
+    },
+    {
+      "id": "SC-COMMUNICATION-003",
+      "submodel": "flync_4_communication",
+      "type": "Boundary",
+      "title": "Boundary TCP Port Number Configuration",
+      "description": "Verify that configuring a TCP profile with the maximum valid port number of 65535 is accepted as a valid boundary value.",
+      "expected_result": "The configuration is successfully validated with port 65535.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-COMMUNICATION-004",
+      "submodel": "flync_4_communication",
+      "type": "Positive",
+      "title": "Valid UDP Profile Configuration with Standard Options",
+      "description": "Verify that a UDP profile defined with valid UDPOption parameters (such as a valid destination port and no connection-oriented parameters) is successfully parsed.",
+      "expected_result": "The UDP profile is successfully parsed and registered in the communication configuration.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-COMMUNICATION-005",
+      "submodel": "flync_4_communication",
+      "type": "Negative",
+      "title": "Duplicate Channel Name Configuration",
+      "description": "Verify that defining two channels with the same identifier under communication/channels/ in FLYNCChannelConfig triggers a validation error.",
+      "expected_result": "Validation fails with a duplicate channel identifier error.",
+      "injected_fault": "Duplicate channel identifier defined in FLYNCChannelConfig"
+    },
+    {
+      "id": "SC-COMMUNICATION-006",
+      "submodel": "flync_4_communication",
+      "type": "Boundary",
+      "title": "Boundary TTL Hop Limit Configuration",
+      "description": "Verify that configuring a TTL/Hop Limit at its maximum boundary value of 255 in the IP options is accepted, while 256 is rejected.",
+      "expected_result": "Validation fails with an out-of-range error for TTL/Hop Limit (must be 0-255).",
+      "injected_fault": "TTL/Hop Limit set to 256"
+    },
+    {
+      "id": "SC-ECU-001",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Valid ECU configuration",
+      "description": "Test that a valid ECU configuration is successfully loaded when containing the mandatory 'ports.flync.yaml' file and at least one controller directory under 'controllers/'.",
+      "expected_result": "ECU configuration loaded and validated successfully",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-002",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "Invalid MDI configuration placement",
+      "description": "Test that defining an 'mdi_config' on a controller's Ethernet interface instead of the ECU Ports configuration raises a validation error.",
+      "expected_result": "Error: MDI configuration must be defined on ECU Ports, not on controller interfaces",
+      "injected_fault": "MDI configuration defined on controller interface"
+    },
+    {
+      "id": "SC-ECU-003",
+      "submodel": "flync_4_ecu",
+      "type": "Boundary",
+      "title": "VLAN ID upper boundary validation",
+      "description": "Test that a socket configuration with the maximum valid 802.1Q VLAN ID (4094) is successfully validated.",
+      "expected_result": "Socket configuration with VLAN ID 4094 validated successfully",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-004",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Valid socket configuration",
+      "description": "Test that a socket configuration file in the 'sockets/' directory successfully defines a group of sockets with a valid VLAN ID, IPv4 address endpoint, and port number.",
+      "expected_result": "Socket container configuration parsed and validated successfully",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-005",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "Invalid VLAN ID out of bounds",
+      "description": "Test that a socket configuration with an out-of-bounds VLAN ID (4096) raises a validation error.",
+      "expected_result": "Error: VLAN ID must be in the range 1-4094",
+      "injected_fault": "VLAN ID set to 4096"
+    },
+    {
+      "id": "SC-METADATA-001",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid System Metadata Parsing",
+      "description": "Verify that a valid system_metadata.flync.yaml file containing mandatory system context and SemVer-compliant versioning is successfully parsed.",
+      "expected_result": "System metadata is successfully parsed and validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-003",
+      "submodel": "flync_4_metadata",
+      "type": "Boundary",
+      "title": "System Metadata with PEP 440 Versioning",
+      "description": "Verify that system_metadata.flync.yaml is successfully parsed when using a complex PEP 440 version string (e.g., '1.2.3a1.post1') to test the boundary of the version parser.",
+      "expected_result": "System metadata is successfully parsed and PEP 440 version is validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-004",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid ECU Metadata Parsing",
+      "description": "Verify that a valid ecu_metadata.flync.yaml file containing hardware and software metadata is successfully parsed.",
+      "expected_result": "ECU metadata is successfully parsed and validated.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-005",
+      "submodel": "flync_4_metadata",
+      "type": "Negative",
+      "title": "SocketsPerVLANMetadata with Invalid IP Address",
+      "description": "Verify that SocketsPerVLANMetadata is rejected when configured with an invalid IPv4 address containing an out-of-range octet.",
+      "expected_result": "Validation fails due to invalid IPv4 address format.",
+      "injected_fault": "IPv4 address set to '192.168.1.256'"
+    },
+    {
+      "id": "SC-METADATA-006",
+      "submodel": "flync_4_metadata",
+      "type": "Boundary",
+      "title": "SocketsPerVLANMetadata Port Number Boundary Check",
+      "description": "Verify that SocketsPerVLANMetadata validation fails when the port number is configured just outside the valid range of 0-65535.",
+      "expected_result": "Validation fails because the port number exceeds the maximum limit of 65535.",
+      "injected_fault": "Port number set to 65536"
+    },
+    {
+      "id": "SC-NM-001",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid Group and Timing Profile Configuration",
+      "description": "A valid StateManagementGroup in groups.flync.yaml referencing a valid timing profile in timing_profiles.flync.yaml and a valid NM PDU.",
+      "expected_result": "Valid configuration",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-002",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Mixed CAN Bus Memberships",
+      "description": "A CAN bus configured with both node-level (ECU/controller) and bus-level state memberships, which must be rejected during validation.",
+      "expected_result": "Invalid configuration",
+      "injected_fault": "mixed node-level and bus-level memberships on the same CAN bus"
+    },
+    {
+      "id": "SC-NM-003",
+      "submodel": "flync_4_nm",
+      "type": "Boundary",
+      "title": "Participant Membership with Default Relevance Bit",
+      "description": "A participant state membership where relevance_bits is omitted, verifying that it successfully defaults to the declaring entity's name.",
+      "expected_result": "Valid configuration",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-004",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid Timing Profile Reference",
+      "description": "A StateManagementGroup referencing a non-existent timing profile name, which must fail validation.",
+      "expected_result": "Invalid configuration",
+      "injected_fault": "non-existent timing profile reference"
+    },
+    {
+      "id": "SC-NM-005",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Observer with Relevance Bits",
+      "description": "A state membership configured with role 'observer' that also declares relevance_bits, which must be rejected during validation.",
+      "expected_result": "Invalid configuration",
+      "injected_fault": "relevance_bits declared on an observer membership"
+    },
+    {
+      "id": "SC-NM-006",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "LIN Node-Level Membership",
+      "description": "Declaring node-level (ECU or controller) state membership for a LIN transport, which only supports bus-level membership.",
+      "expected_result": "Invalid configuration",
+      "injected_fault": "node-level membership on LIN transport"
+    },
+    {
+      "id": "SC-SECURITY-001",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "MACsec Configuration with Integrity and Confidentiality",
+      "description": "Verify that configuring MACsec with IntegrityWithConfidentiality successfully enables link-by-link Layer 2 encryption and integrity protection using MKA.",
+      "expected_result": "MACsec configuration is successfully applied with IntegrityWithConfidentiality enabled",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-002",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid MACsec Key Length",
+      "description": "Verify that configuring MACsec with an invalid key length of 10 bytes is rejected, as MACsec requires 16-byte (128-bit) or 32-byte (256-bit) keys.",
+      "expected_result": "Configuration is rejected because MACsec key length must be 16 or 32 bytes",
+      "injected_fault": "MACsec key length of 10 bytes"
+    },
+    {
+      "id": "SC-SECURITY-004",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Duplicate Firewall Rule Configuration",
+      "description": "Verify that configuring a Firewall with duplicate FirewallRule entries (matching protocol, source/destination IPs, and ports) is rejected.",
+      "expected_result": "Configuration is rejected with an error indicating duplicate firewall rules are not allowed",
+      "injected_fault": "duplicate firewall rule"
+    },
+    {
+      "id": "SC-SECURITY-005",
+      "submodel": "flync_4_security",
+      "type": "Boundary",
+      "title": "Firewall Rule with Boundary Port Numbers",
+      "description": "Verify that a FirewallRule with boundary port numbers (0 and 65535) is successfully validated.",
+      "expected_result": "Firewall rule with port 65535 is successfully validated",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-006",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid Firewall Protocol",
+      "description": "Verify that a FirewallRule specifying an invalid or unsupported transport protocol is rejected.",
+      "expected_result": "Configuration is rejected with an error indicating an invalid protocol",
+      "injected_fault": "invalid firewall protocol"
+    },
+    {
+      "id": "SC-SIGNAL-001",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Valid Signal with Text Table Encoding",
+      "description": "Verify that a UINT8 signal representing a gear selection can be successfully defined with a text_table value encoding mapping raw values 0-3 to Park, Reverse, Neutral, and Drive.",
+      "expected_result": "Signal is successfully validated with its text_table value encoding mapping raw values to labels.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-002",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "Invalid Signal with Non-Existent Data Type",
+      "description": "Verify that defining a signal with an invalid data_type string ('invalid_type') instead of a valid SignalDataType enum variant (such as 'UINT8') triggers a validation error.",
+      "expected_result": "Validation fails with an error indicating that 'invalid_type' is not a valid SignalDataType.",
+      "injected_fault": "data_type: invalid_type"
+    },
+    {
+      "id": "SC-SIGNAL-003",
+      "submodel": "flync_4_signal",
+      "type": "Boundary",
+      "title": "Signal with Maximum Bit Length for UINT64",
+      "description": "Verify that a UINT64 signal can be defined with its maximum natural bit width of 64 bits.",
+      "expected_result": "Signal is successfully validated with a bit_length of 64 matching the natural bit width of UINT64.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-004",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "Invalid Signal with Duplicate Value Encoding",
+      "description": "Verify that a text_table value encoding with duplicate raw value entries (e.g., two entries mapping raw value 1 to different labels) is rejected during validation.",
+      "expected_result": "Validation fails due to duplicate value mapping or overlapping ranges in the text_table encoding.",
+      "injected_fault": "value_encoding: { type: text_table, entries: [{ value: 1, label: 'A' }, { value: 1, label: 'B' }] }"
+    },
+    {
+      "id": "SC-SIGNAL-005",
+      "submodel": "flync_4_signal",
+      "type": "Boundary",
+      "title": "Signal with Minimum Bit Length",
+      "description": "Verify that a signal can be defined with the minimum bit length of 1 bit using the UINT8 data type.",
+      "expected_result": "Signal is successfully validated with a bit_length of 1.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-006",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "Invalid Signal with Missing Bit Length",
+      "description": "Verify that a signal definition missing the mandatory bit_length field is rejected during validation.",
+      "expected_result": "Validation fails indicating that bit_length is a required field and cannot be null.",
+      "injected_fault": "bit_length: null"
+    },
+    {
+      "id": "SC-SOMEIP-001",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOME/IP Service Interface Configuration",
+      "description": "Verify that a valid SOMEIPServiceInterface configuration containing a unique Service Identifier, a SOMEIPRequestResponseMethod, a SOMEIPEvent, and a SOMEIPEventgroup is successfully parsed and instantiated.",
+      "expected_result": "The SOMEIPServiceInterface is successfully instantiated with the defined methods, events, and eventgroups.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-002",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Duplicate Service ID in SOME/IP Service Interface",
+      "description": "Verify that configuring two SOMEIPServiceInterface instances with the same unique Service Identifier within the same SOMEIPConfig deployment results in a validation error.",
+      "expected_result": "Validation fails with an error indicating duplicate Service Identifier.",
+      "injected_fault": "Duplicate service ID"
+    },
+    {
+      "id": "SC-SOMEIP-003",
+      "submodel": "flync_4_someip",
+      "type": "Boundary",
+      "title": "Boundary SOME/IP Service ID and Method ID Values",
+      "description": "Verify that a SOMEIPServiceInterface with the maximum valid 16-bit Service ID (65535) and a SOMEIPMethod with the maximum valid Method ID (32767) are successfully parsed.",
+      "expected_result": "The configuration is successfully validated and instantiated with boundary ID values.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-004",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SOME/IP Datatype in Service Interface",
+      "description": "Verify that a SOMEIPParameter configured with an invalid or unsupported datatype (not defined in someip_datatypes) is rejected during validation.",
+      "expected_result": "Validation fails with an error indicating an unsupported or invalid SOME/IP datatype.",
+      "injected_fault": "Invalid datatype"
+    },
+    {
+      "id": "SC-SOMEIP-005",
+      "submodel": "flync_4_someip",
+      "type": "Boundary",
+      "title": "SOME/IP TP Activation Threshold Boundary",
+      "description": "Verify that SOMEIPTP segmentation activates exactly when the payload size exceeds the configured UDP segment size threshold by 1 byte, and remains inactive when it is exactly equal to the threshold.",
+      "expected_result": "SOME/IP TP is triggered only when the payload exceeds the threshold, and standard UDP deployment is used when payload is equal to or below the threshold.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-001",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid System Topology with Multiple ECUs",
+      "description": "Verify a valid system topology with multiple ECUs where all external connections are of type 'ecu_port_to_ecu_port'.",
+      "expected_result": "No errors, valid system topology",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-002",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid System Topology with Duplicate ECU ID",
+      "description": "Verify that the system topology parser rejects configurations containing duplicate ECU identifiers.",
+      "expected_result": "Error: Duplicate ECU ID found in system topology",
+      "injected_fault": "Duplicate ECU ID"
+    },
+    {
+      "id": "SC-TOPOLOGY-003",
+      "submodel": "flync_4_topology",
+      "type": "Boundary",
+      "title": "System Topology with a Single ECU",
+      "description": "Verify the boundary condition of a system topology containing exactly one ECU, where no external connections are specified.",
+      "expected_result": "No errors, valid single-ECU system topology",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-004",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid External Connection Type",
+      "description": "Verify that an external connection with a type other than 'ecu_port_to_ecu_port' is rejected.",
+      "expected_result": "Error: Connection type must be 'ecu_port_to_ecu_port'",
+      "injected_fault": "Connection type set to 'invalid_port_type'"
+    },
+    {
+      "id": "SC-TOPOLOGY-006",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "External Connection Referencing Non-Existent ECU",
+      "description": "Verify that an external connection referencing an ECU ID not defined in the system topology is rejected as a dangling reference.",
+      "expected_result": "Error: Referenced ECU ID not found in system topology",
+      "injected_fault": "Dangling ECU reference in external connection"
+    },
+    {
+      "id": "SC-TSN-001",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid gPTP configuration",
+      "description": "Verify that a PTPConfig containing a PTPPort configured with PTPTimeTransmitterConfig and PTPPdelayConfig is successfully parsed and validated.",
+      "expected_result": "PTPConfig is successfully validated",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-002",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Conflicting PTP port roles",
+      "description": "Verify that configuring a PTPPort with both PTPTimeTransmitterConfig and PTPTimeReceiverConfig simultaneously is rejected by the validator.",
+      "expected_result": "Validation fails with a configuration error",
+      "injected_fault": "Conflicting transmitter and receiver configurations on a single port"
+    },
+    {
+      "id": "SC-TSN-003",
+      "submodel": "flync_4_tsn",
+      "type": "Boundary",
+      "title": "CBS shaper credit boundary validation",
+      "description": "Verify that a CBSShaper configuration with highCredit and lowCredit set to their maximum and minimum allowed integer limits is successfully validated.",
+      "expected_result": "Configuration is successfully validated and applied",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-004",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid traffic class configuration",
+      "description": "Verify that a TrafficClass configuration containing a valid CBSShaper and mapped to a specific egress queue is successfully validated.",
+      "expected_result": "TrafficClass is successfully created and mapped to the egress queue",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-005",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid CBS shaper idleSlope",
+      "description": "Verify that a CBSShaper configuration is rejected when the idleSlope exceeds the physical link speed of the port.",
+      "expected_result": "Validation fails with an idleSlope out of bounds error",
+      "injected_fault": "idleSlope exceeding link speed"
+    },
+    {
+      "id": "SC-TSN-006",
+      "submodel": "flync_4_tsn",
+      "type": "Boundary",
+      "title": "DoubleRateThreeColorMarker boundary validation",
+      "description": "Verify that a DoubleRateThreeColorMarker configuration where the Peak Information Rate (PIR) is set exactly equal to the Committed Information Rate (CIR) is successfully validated.",
+      "expected_result": "Configuration is successfully validated with PIR equal to CIR",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-CROSS-001",
+      "submodel": "cross_module (flync_4_signal + flync_4_communication + flync_4_ecu)",
+      "type": "Negative",
+      "title": "ContainerPDU Size Overflowing UDP Socket Buffer Configuration",
+      "description": "A ContainerPDU defined in flync_4_communication aggregates multiple independent PDUs containing high-frequency signals defined in flync_4_signal. This ContainerPDU is routed to an Ethernet socket on a target ECU configured in flync_4_ecu. The test checks the system's behavior when the cumulative size of the contained PDUs exceeds the maximum UDP socket buffer size (UDPOption) configured for the target ECU port.",
+      "expected_result": "The validation engine flags a configuration mismatch error, indicating that the maximum possible size of the ContainerPDU exceeds the UDPOption buffer size of the receiving ECU socket.",
+      "injected_fault": "The combined payload size of the contained PDUs in the ContainerPDU configuration exceeds the 'max_packet_size' or buffer limits defined in the target ECU's UDPOption."
+    },
+    {
+      "id": "SC-CROSS-002",
+      "submodel": "cross_module (flync_4_signal + flync_4_communication + flync_4_ecu)",
+      "type": "Positive",
+      "title": "End-to-End CAN FD Frame and Signal Mapping to ECU Controller",
+      "description": "A CAN FD Frame is defined in flync_4_communication with Bit Rate Switch (BRS) enabled and a payload of 64 bytes. It contains a SignalInstance wrapping a 32-bit float signal from flync_4_signal. This frame is mapped to a CAN FD controller configured on a specific ECU in flync_4_ecu.",
+      "expected_result": "Successful generation of the network description (e.g., ARXML or DBC) with correct bit-mappings, controller settings, and BRS flags aligned across all submodels.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-CROSS-003",
+      "submodel": "cross_module (flync_4_signal + flync_4_communication + flync_4_ecu)",
+      "type": "Boundary",
+      "title": "SecOC PDU Freshness Value and MAC Bit-Width Alignment",
+      "description": "A secured PDU (SecOC) is configured in flync_4_communication to protect a critical control signal from flync_4_signal. The target ECU in flync_4_ecu must process this. The test verifies the boundary condition where the combined bit-widths of the payload signal, the Message Authentication Code (MAC), and the Freshness Value exactly equal the maximum payload limit of the underlying Classic CAN frame (8 bytes / 64 bits).",
+      "expected_result": "The system validates that the total bit-width is exactly 64 bits, allowing successful compilation without triggering truncation or padding errors.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-CROSS-004",
+      "submodel": "cross_module (flync_4_communication + flync_4_ecu)",
+      "type": "Negative",
+      "title": "SOME/IP Multicast Event Group Port Mismatch",
+      "description": "A SOME/IP service event group is configured in flync_4_communication to use IP multicast for dynamic service discovery (SOME/IP-SD). The subscriber ECU is configured in flync_4_ecu with a physical ECUPort. The test checks if the system detects when the subscriber ECU's port configuration lacks multicast capability or has mismatched MDI/MII configurations that prevent multicast routing.",
+      "expected_result": "Validation failure during configuration compilation, highlighting that the subscriber ECU port cannot join the multicast group specified in the SOME/IP-SD configuration.",
+      "injected_fault": "The subscriber ECU's port configuration in ports.flync.yaml does not support multicast routing, but the communication channel config assigns it to a multicast group."
+    }
+  ]
+}

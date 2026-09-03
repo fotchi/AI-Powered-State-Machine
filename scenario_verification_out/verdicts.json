@@ -1,0 +1,3942 @@
+[
+  {
+    "scenario_id": "SC-APP-001",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "ServiceConsumerReference",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-002",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "ServiceConsumerReference",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-003",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "AppBindings"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-004",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-005",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-006",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [
+      "Range"
+    ],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "REQUIRES_SDK",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-007",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "AppBindings"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-008",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "AppBindings"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-APP-009",
+    "submodels_declared": [
+      "flync_4_app"
+    ],
+    "entities_found_in_model": [
+      "ServiceConsumerReference",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-001",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-002",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-003",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-004",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-005",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-006",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-007",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-008",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-BUS-009",
+    "submodels_declared": [
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-001",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [
+      "FLYNCChannelConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-002",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "TCPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-003",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "UDPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-004",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [
+      "FLYNCChannelConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-005",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "TCPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-006",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "Layer4Endpoint",
+      "UDPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-008",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "TCPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-009",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "UDPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-COMMUNICATION-010",
+    "submodels_declared": [
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [
+      "MultiplexedPDU"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-001",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "Controller",
+      "ECUPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Controller": [
+        "reject_legacy_controller_layout",
+        "require_at_least_one_interface",
+        "validate_unique_interface_names",
+        "check_ports_virtual_switch_are_interfaces_or_compute_nodes"
+      ],
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-002",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "ECUPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-003",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "Switch",
+      "VirtualSwitch",
+      "VirtualSwitchPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Switch": [
+        "validate_unique_port_number",
+        "validate_unique_port_names",
+        "validate_ipv_mapping",
+        "validate_ats_instances",
+        "validate_ports_in_tcam_exist",
+        "validate_tcam_ids_unique",
+        "validate_tcam_name_unique"
+      ],
+      "VirtualSwitch": [
+        "experimental_warning"
+      ],
+      "VirtualSwitchPort": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-004",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "Switch"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Switch": [
+        "validate_unique_port_number",
+        "validate_unique_port_names",
+        "validate_ipv_mapping",
+        "validate_ats_instances",
+        "validate_ports_in_tcam_exist",
+        "validate_tcam_ids_unique",
+        "validate_tcam_name_unique"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-005",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "IPv4AddressEndpoint",
+      "Socket"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IPv4AddressEndpoint": [
+        "check_if_sockets_have_the_same_ip"
+      ],
+      "Socket": [
+        "drop_invalid_deployment",
+        "validate_unique_forwarder_per_pdu"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-006",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "Controller"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Controller": [
+        "reject_legacy_controller_layout",
+        "require_at_least_one_interface",
+        "validate_unique_interface_names",
+        "check_ports_virtual_switch_are_interfaces_or_compute_nodes"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-007",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "EthernetInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "EthernetInterface": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-008",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "CANInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANInterface": [
+        "validate_forwarder_frame_uniqueness"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-009",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "LINMasterInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "LINMasterInterface": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-ECU-010",
+    "submodels_declared": [
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "Switch",
+      "VirtualSwitch"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Switch": [
+        "validate_unique_port_number",
+        "validate_unique_port_names",
+        "validate_ipv_mapping",
+        "validate_ats_instances",
+        "validate_ports_in_tcam_exist",
+        "validate_tcam_ids_unique",
+        "validate_tcam_name_unique"
+      ],
+      "VirtualSwitch": [
+        "experimental_warning"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-001",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "SystemMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SystemMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-002",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-003",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "BaseVersion"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "BaseVersion": [
+        "validate_and_parse_version"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-004",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "HardwareBaseMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "HardwareBaseMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-005",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "EmbeddedMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "EmbeddedMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-007",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "SystemMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SystemMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-008",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-METADATA-009",
+    "submodels_declared": [
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "BaseMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "BaseMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-001",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "StateManagementGroup",
+      "StateMembershipRef"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ],
+      "StateMembershipRef": [
+        "observer_owns_no_bit",
+        "no_duplicate_bits"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-002",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-003",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "GroupTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "GroupTiming": [
+        "check_consistency"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-004",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "GroupTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "GroupTiming": [
+        "check_consistency"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-005",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "StateMembershipRef"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "StateMembershipRef": [
+        "observer_owns_no_bit",
+        "no_duplicate_bits"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-007",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "SleepTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SleepTiming": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-008",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "SleepTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SleepTiming": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-009",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "AnnouncementPhaseTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AnnouncementPhaseTiming": [
+        "check_burst_pair"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-NM-010",
+    "submodels_declared": [
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "AnnouncementPhaseTiming"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AnnouncementPhaseTiming": [
+        "check_burst_pair"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-001",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "IntegrityWithConfidentiality",
+      "MACsecConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IntegrityWithConfidentiality": [
+        "(aucun validator)"
+      ],
+      "MACsecConfig": [
+        "validate_mka_macsecmode_disabled",
+        "validate_life_time_greater_than_hello_time"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-002",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-003",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "IntegrityWithoutConfidentiality",
+      "MACsecConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IntegrityWithoutConfidentiality": [
+        "(aucun validator)"
+      ],
+      "MACsecConfig": [
+        "validate_mka_macsecmode_disabled",
+        "validate_life_time_greater_than_hello_time"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-004",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-005",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-006",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "IntegrityWithConfidentiality",
+      "MACsecConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IntegrityWithConfidentiality": [
+        "(aucun validator)"
+      ],
+      "MACsecConfig": [
+        "validate_mka_macsecmode_disabled",
+        "validate_life_time_greater_than_hello_time"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-007",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SECURITY-009",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-001",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-002",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-003",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-004",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-005",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "BitfieldGroup",
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "BitfieldGroup": [
+        "_validate_states"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Bitfield"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-006",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-007",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-008",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-009",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SIGNAL-010",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-001",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPServiceInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPServiceInterface": [
+        "resolve_eventgroup_event_refs",
+        "validate_for_notifiers_without_eventgroup",
+        "validate_service_owns_elements_of_eventgroups",
+        "validate_all_identifiers_to_be_unique"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-002",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPServiceInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPServiceInterface": [
+        "resolve_eventgroup_event_refs",
+        "validate_for_notifiers_without_eventgroup",
+        "validate_service_owns_elements_of_eventgroups",
+        "validate_all_identifiers_to_be_unique"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-003",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPRequestResponseMethod"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPRequestResponseMethod": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-004",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPEvent",
+      "SOMEIPEventgroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPEvent": [
+        "(aucun validator)"
+      ],
+      "SOMEIPEventgroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-005",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPField"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPField": [
+        "validate_at_least_one_identifier_to_be_defined"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-006",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "Layer4Endpoint",
+      "SOMEIPServiceDeployment"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Layer4Endpoint": [
+        "(aucun validator)"
+      ],
+      "SOMEIPServiceDeployment": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-007",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SDConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SDConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-008",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-009",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "Layer4Endpoint",
+      "SOMEIPServiceInterface",
+      "SOMEIPServiceProvider"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Layer4Endpoint": [
+        "(aucun validator)"
+      ],
+      "SOMEIPServiceInterface": [
+        "resolve_eventgroup_event_refs",
+        "validate_for_notifiers_without_eventgroup",
+        "validate_service_owns_elements_of_eventgroups",
+        "validate_all_identifiers_to_be_unique"
+      ],
+      "SOMEIPServiceProvider": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-SOMEIP-010",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPServiceConsumer",
+      "SOMEIPServiceInterface"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPServiceConsumer": [
+        "(aucun validator)"
+      ],
+      "SOMEIPServiceInterface": [
+        "resolve_eventgroup_event_refs",
+        "validate_for_notifiers_without_eventgroup",
+        "validate_service_owns_elements_of_eventgroups",
+        "validate_all_identifiers_to_be_unique"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-001",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-002",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-004",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-005",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-006",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-009",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TOPOLOGY-010",
+    "submodels_declared": [
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {},
+    "classification": "UNRESOLVED",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-001",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "PTPConfig",
+      "PTPTimeReceiverConfig",
+      "PTPTimeTransmitterConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "PTPConfig": [
+        "(aucun validator)"
+      ],
+      "PTPTimeReceiverConfig": [
+        "(aucun validator)"
+      ],
+      "PTPTimeTransmitterConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-002",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "PTPPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "PTPPort": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-003",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "CBSShaper"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CBSShaper": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-004",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "ATSInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ATSInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-005",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "TrafficClass"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "TrafficClass": [
+        "validate_priority_values",
+        "validate_at_least_one_prio_list"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-006",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "HTBInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "HTBInstance": [
+        "validate_htb_config"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-007",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "FrameFilter"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FrameFilter": [
+        "validate_vlanids",
+        "validate_pcps",
+        "validate_port_mac",
+        "validate_port_assignment"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-008",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-009",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "SingleRateTwoColorMarker",
+      "TrafficClass"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "TrafficClass": [
+        "validate_priority_values",
+        "validate_at_least_one_prio_list"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-TSN-010",
+    "submodels_declared": [
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "DoubleRateThreeColorMarker",
+      "TrafficClass"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "DoubleRateThreeColorMarker": [
+        "(aucun validator)"
+      ],
+      "TrafficClass": [
+        "validate_priority_values",
+        "validate_at_least_one_prio_list"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": null
+  },
+  {
+    "scenario_id": "SC-CROSS-000-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_bus"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "CANBus",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-001-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [
+      "FLYNCCommunicationConfig",
+      "ServiceConsumerReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ],
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-002-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "Controller",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "Controller": [
+        "reject_legacy_controller_layout",
+        "require_at_least_one_interface",
+        "validate_unique_interface_names",
+        "check_ports_virtual_switch_are_interfaces_or_compute_nodes"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "AppBindings"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-003-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "ECUMetadata",
+      "EmbeddedMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "EmbeddedMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-004-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "GroupTiming",
+      "ServiceProviderReference",
+      "StateManagementConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "GroupTiming": [
+        "check_consistency"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ],
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-005-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "Firewall",
+      "FirewallRule",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller",
+      "Drop"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-006-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "ServiceProviderReference",
+      "Signal",
+      "SignalDataType"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-007-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "SOMEIPConfig",
+      "ServiceConsumerReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ],
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-008-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "AppBindings",
+      "ExternalConnection",
+      "ServiceConsumerReference",
+      "ServiceProviderReference"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "ServiceConsumerReference": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-009-0",
+    "submodels_declared": [
+      "flync_4_app",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "ATSInstance",
+      "AppBindings",
+      "ServiceProviderReference",
+      "SingleRateTwoColorMarker",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ATSInstance": [
+        "(aucun validator)"
+      ],
+      "AppBindings": [
+        "(aucun validator)"
+      ],
+      "ServiceProviderReference": [
+        "(aucun validator)"
+      ],
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-010-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "FLYNCChannelConfig",
+      "FLYNCCommunicationConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [
+      "CANBus"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-011-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "ECUPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-012-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "ECUMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "ECUMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-013-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-014-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-015-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "Frame",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "Frame": [
+        "_validate_pdu_placements"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-016-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "Layer4Endpoint",
+      "SDConfig",
+      "SOMEIPConfig",
+      "SOMEIPServiceDeployment"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Layer4Endpoint": [
+        "(aucun validator)"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ],
+      "SOMEIPServiceDeployment": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-017-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "CANBus"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-018-0",
+    "submodels_declared": [
+      "flync_4_bus",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "CANBus",
+      "FrameFilter",
+      "SingleRateTwoColorMarker",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANBus": [
+        "validate_baud_rate",
+        "validate_fd_configuration",
+        "validate_can_fd_frames_require_fd_enabled",
+        "validate_unique_can_ids"
+      ],
+      "FrameFilter": [
+        "validate_vlanids",
+        "validate_pcps",
+        "validate_port_mac",
+        "validate_port_assignment"
+      ],
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Frame"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-019-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_ecu"
+    ],
+    "entities_found_in_model": [
+      "TCPOption",
+      "FLYNCCommunicationConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "TCPOption": [
+        "(aucun validator)"
+      ],
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "TCPOption"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-020-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "FLYNCChannelConfig",
+      "FLYNCCommunicationConfig",
+      "SystemMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ],
+      "SystemMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-021-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "StateManagementConfig",
+      "FLYNCChannelConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "StateManagementConfig"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-022-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "FLYNCCommunicationConfig",
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ],
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Socket",
+      "TCPOption"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-023-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "FLYNCChannelConfig",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-024-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPConfig",
+      "FLYNCChannelConfig",
+      "FLYNCCommunicationConfig",
+      "SDConfig",
+      "SDTimings"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "FLYNCCommunicationConfig": [
+        "(aucun validator)"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SDTimings": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "TCPOption"
+    ],
+    "bridge_classes_prioritized": [
+      "SOMEIPConfig"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-025-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "FLYNCChannelConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-026-0",
+    "submodels_declared": [
+      "flync_4_communication",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "ATSInstance",
+      "FLYNCChannelConfig",
+      "SingleRateTwoColorMarker",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ATSInstance": [
+        "(aucun validator)"
+      ],
+      "FLYNCChannelConfig": [
+        "validate_pdus_name_unique",
+        "validate_canbus_name_unique",
+        "validate_linbus_name_unique",
+        "validate_pdu_refs"
+      ],
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-027-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_metadata"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "EmbeddedMetadata",
+      "Controller"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "EmbeddedMetadata": [
+        "(aucun validator)"
+      ],
+      "Controller": [
+        "reject_legacy_controller_layout",
+        "require_at_least_one_interface",
+        "validate_unique_interface_names",
+        "check_ports_virtual_switch_are_interfaces_or_compute_nodes"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "ECUMetadata",
+      "EmbeddedMetadata"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-028-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "GroupTiming",
+      "StateManagementConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "GroupTiming": [
+        "check_consistency"
+      ],
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-029-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "ECUPort",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "Firewall"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-030-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "ECUPort",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-031-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "Controller",
+      "ECUPort",
+      "SOMEIPConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Controller": [
+        "reject_legacy_controller_layout",
+        "require_at_least_one_interface",
+        "validate_unique_interface_names",
+        "check_ports_virtual_switch_are_interfaces_or_compute_nodes"
+      ],
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-032-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ECUPort",
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ],
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "ECUPort"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-033-0",
+    "submodels_declared": [
+      "flync_4_ecu",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "PTPConfig",
+      "ECUPort",
+      "PTPPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "PTPConfig": [
+        "(aucun validator)"
+      ],
+      "ECUPort": [
+        "verify_mdi_and_mii_config_have_same_speed"
+      ],
+      "PTPPort": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [
+      "PTPConfig"
+    ],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-034-0",
+    "submodels_declared": [
+      "flync_4_metadata",
+      "flync_4_nm"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "GroupTiming",
+      "StateManagementConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "GroupTiming": [
+        "check_consistency"
+      ],
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-036-0",
+    "submodels_declared": [
+      "flync_4_metadata",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance",
+      "SystemMetadata"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ],
+      "SystemMetadata": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-037-0",
+    "submodels_declared": [
+      "flync_4_metadata",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "Layer4Endpoint",
+      "SOMEIPConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "Layer4Endpoint": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Socket"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-038-0",
+    "submodels_declared": [
+      "flync_4_metadata",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "ExternalConnection"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "ExternalConnection": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-039-0",
+    "submodels_declared": [
+      "flync_4_metadata",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "ECUMetadata",
+      "EmbeddedMetadata",
+      "PTPConfig",
+      "PTPPort"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ECUMetadata": [
+        "(aucun validator)"
+      ],
+      "EmbeddedMetadata": [
+        "(aucun validator)"
+      ],
+      "PTPConfig": [
+        "(aucun validator)"
+      ],
+      "PTPPort": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-040-0",
+    "submodels_declared": [
+      "flync_4_nm",
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "FirewallRule",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [
+      "Controller"
+    ],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-041-0",
+    "submodels_declared": [
+      "flync_4_nm",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "Signal",
+      "SignalDataType",
+      "SignalInstance",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-042-0",
+    "submodels_declared": [
+      "flync_4_nm",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "GroupTiming",
+      "SDConfig",
+      "SDTimings",
+      "SOMEIPConfig",
+      "SleepTiming",
+      "StateManagementConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "GroupTiming": [
+        "check_consistency"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SDTimings": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ],
+      "SleepTiming": [
+        "(aucun validator)"
+      ],
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-043-0",
+    "submodels_declared": [
+      "flync_4_nm",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "FLYNCTopology",
+      "StateManagementConfig",
+      "StateManagementGroup"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "FLYNCTopology": [
+        "warn_deprecated"
+      ],
+      "StateManagementConfig": [
+        "validate_unique_names"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-044-0",
+    "submodels_declared": [
+      "flync_4_nm",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "GroupTiming",
+      "SingleRateTwoColorMarker",
+      "StateManagementGroup",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "GroupTiming": [
+        "check_consistency"
+      ],
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "StateManagementGroup": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-045-0",
+    "submodels_declared": [
+      "flync_4_security",
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "FirewallRule",
+      "Signal",
+      "SignalDataType"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FirewallRule": [
+        "validate_pattern"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-046-0",
+    "submodels_declared": [
+      "flync_4_security",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "FirewallRule",
+      "SDConfig",
+      "SOMEIPConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-047-0",
+    "submodels_declared": [
+      "flync_4_security",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-048-0",
+    "submodels_declared": [
+      "flync_4_security",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "IntegrityWithConfidentiality",
+      "MACsecConfig",
+      "PTPConfig",
+      "PTPPort",
+      "PTPTimeTransmitterConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IntegrityWithConfidentiality": [
+        "(aucun validator)"
+      ],
+      "MACsecConfig": [
+        "validate_mka_macsecmode_disabled",
+        "validate_life_time_greater_than_hello_time"
+      ],
+      "PTPConfig": [
+        "(aucun validator)"
+      ],
+      "PTPPort": [
+        "(aucun validator)"
+      ],
+      "PTPTimeTransmitterConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": true
+  },
+  {
+    "scenario_id": "SC-CROSS-049-0",
+    "submodels_declared": [
+      "flync_4_signal",
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPConfig",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-050-0",
+    "submodels_declared": [
+      "flync_4_signal",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-051-0",
+    "submodels_declared": [
+      "flync_4_signal",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "Frame",
+      "FrameFilter",
+      "Signal",
+      "SignalDataType",
+      "SignalInstance",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Frame": [
+        "_validate_pdu_placements"
+      ],
+      "FrameFilter": [
+        "validate_vlanids",
+        "validate_pcps",
+        "validate_port_mac",
+        "validate_port_assignment"
+      ],
+      "Signal": [
+        "_factor_nonzero",
+        "_validate_bit_length_for_data_type",
+        "_validate_limits",
+        "_validate_initial_value",
+        "_validate_value_encoding"
+      ],
+      "SignalDataType": [
+        "(aucun validator)"
+      ],
+      "SignalInstance": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-052-0",
+    "submodels_declared": [
+      "flync_4_someip",
+      "flync_4_topology"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "FLYNCTopology",
+      "SDConfig",
+      "SDTimings",
+      "SOMEIPConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "FLYNCTopology": [
+        "warn_deprecated"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SDTimings": [
+        "(aucun validator)"
+      ],
+      "SOMEIPConfig": [
+        "validate_all_e2e_identifiers_to_be_unique",
+        "validate_timing_exist"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-053-0",
+    "submodels_declared": [
+      "flync_4_someip",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "FrameFilter",
+      "SDConfig",
+      "SDTimings",
+      "SingleRateTwoColorMarker",
+      "Stream"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "FrameFilter": [
+        "validate_vlanids",
+        "validate_pcps",
+        "validate_port_mac",
+        "validate_port_assignment"
+      ],
+      "SDConfig": [
+        "(aucun validator)"
+      ],
+      "SDTimings": [
+        "(aucun validator)"
+      ],
+      "SingleRateTwoColorMarker": [
+        "(aucun validator)"
+      ],
+      "Stream": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  },
+  {
+    "scenario_id": "SC-CROSS-054-0",
+    "submodels_declared": [
+      "flync_4_topology",
+      "flync_4_tsn"
+    ],
+    "entities_found_in_model": [
+      "ExternalConnection",
+      "PTPConfig",
+      "PTPPdelayConfig",
+      "PTPPort",
+      "PTPTimeReceiverConfig",
+      "PTPTimeTransmitterConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "ExternalConnection": [
+        "(aucun validator)"
+      ],
+      "PTPConfig": [
+        "(aucun validator)"
+      ],
+      "PTPPdelayConfig": [
+        "(aucun validator)"
+      ],
+      "PTPPort": [
+        "(aucun validator)"
+      ],
+      "PTPTimeReceiverConfig": [
+        "(aucun validator)"
+      ],
+      "PTPTimeTransmitterConfig": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY",
+    "entities_dropped_out_of_scope": [],
+    "bridge_classes_prioritized": [],
+    "submodels_actually_linked": false
+  }
+]

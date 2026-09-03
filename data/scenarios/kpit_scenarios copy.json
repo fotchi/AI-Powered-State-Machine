@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-02T10:30:00Z",
+    "flync_commit_sha": "851a70b4a9a3b32a50b6f041d6f3a0981b79b4fa",
+    "total_scenarios": 8,
+    "submodels_covered": ["flync_4_signal", "flync_4_someip", "flync_4_security", "cross_module"]
+  },
+  "scenarios": [
+    {
+      "id": "SC-SIGNAL-001",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Valid CAN Frame with matching PDU size",
+      "description": "A CANFrame declares a DLC of 8 bytes and references a StandardPDU whose payload is also 8 bytes.",
+      "injected_fault": null,
+      "expected_result": "Model validation succeeds with no errors."
+    },
+    {
+      "id": "SC-SIGNAL-002",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "CAN Frame DLC smaller than referenced PDU",
+      "description": "A CANFrame declares DLC=4 but its referenced StandardPDU has an 8-byte payload.",
+      "injected_fault": "size mismatch between Frame and PDU",
+      "expected_result": "Validation fails with a size-mismatch error."
+    },
+    {
+      "id": "SC-SIGNAL-003",
+      "submodel": "flync_4_signal",
+      "type": "Boundary",
+      "title": "CAN FD Frame at maximum 64-byte payload",
+      "description": "A CANFDFrame is configured with the maximum allowed payload of 64 bytes.",
+      "injected_fault": null,
+      "expected_result": "Validation succeeds at 64 bytes; 65 bytes must fail."
+    },
+    {
+      "id": "SC-SOMEIP-001",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Client subscribes to an offered Eventgroup",
+      "description": "A SOMEIPServiceConsumer sends Subscribe after receiving a matching Offer via SD, for an Eventgroup declared on the provider.",
+      "injected_fault": null,
+      "expected_result": "SubscribeAck is generated and event Notifications become valid."
+    },
+    {
+      "id": "SC-SOMEIP-002",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Subscribe to a non-existent Eventgroup",
+      "description": "A SOMEIPServiceConsumer references an Eventgroup ID that is not declared on the provider's service interface.",
+      "injected_fault": "dangling Eventgroup reference",
+      "expected_result": "Validation fails: consumer references an undefined Eventgroup."
+    },
+    {
+      "id": "SC-SECURITY-001",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "MACsec channel without a matching key on the peer port",
+      "description": "A MACsecConfig with IntegrityWithConfidentiality is applied to one port, but the connected peer port has no MACsec configuration.",
+      "injected_fault": "asymmetric MACsec configuration across a link",
+      " !expected_result": "Validation fails: MACsec requires matching configuration on both ends of the link."
+    },
+    {
+      "id": "SC-SECURITY-002",
+      "submodel": "flync_4_security",
+      "type": "Boundary",
+      "title": "Firewall rule at maximum rule count",
+      "description": "A Firewall config is populated with the maximum number of FirewallRule entries supported.",
+      "injected_fault": null,
+      "expected_result": "Validation succeeds at the limit; one additional rule must fail."
+    },
+    {
+      "id": "SC-CROSS-001",
+      "submodel": "cross_module (flync_4_signal + flync_4_ecu + flync_4_communication)",
+      "type": "Negative",
+      "title": "CAN Frame forwarded to an unreachable Ethernet socket",
+      "description": "A CANFrameForwarder redirects a Frame to an EthSocketEgress whose destination IP is on a VLAN not reachable from the source ECU.",
+      "injected_fault": "unreachable egress socket across VLAN boundary",
+      "expected_result": "System-level validation fails on forwarder reachability check."
+    }
+  ]
+}

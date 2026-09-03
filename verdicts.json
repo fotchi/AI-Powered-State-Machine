@@ -1,0 +1,177 @@
+[
+  {
+    "scenario_id": "SC-SIGNAL-001",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "CANFrame",
+      "Frame",
+      "StandardPDU"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANFrame": [
+        "validate_can_frame_constraints"
+      ],
+      "Frame": [
+        "_validate_pdu_placements"
+      ],
+      "StandardPDU": [
+        "validate_signals_fit_in_pdu"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SIGNAL-002",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "CANFrame",
+      "Frame",
+      "StandardPDU"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANFrame": [
+        "validate_can_frame_constraints"
+      ],
+      "Frame": [
+        "_validate_pdu_placements"
+      ],
+      "StandardPDU": [
+        "validate_signals_fit_in_pdu"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SIGNAL-003",
+    "submodels_declared": [
+      "flync_4_signal"
+    ],
+    "entities_found_in_model": [
+      "CANFDFrame",
+      "Frame"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANFDFrame": [
+        "validate_can_fd_frame_constraints"
+      ],
+      "Frame": [
+        "_validate_pdu_placements"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SOMEIP-001",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPServiceConsumer"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPServiceConsumer": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SOMEIP-002",
+    "submodels_declared": [
+      "flync_4_someip"
+    ],
+    "entities_found_in_model": [
+      "SOMEIPServiceConsumer"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "SOMEIPServiceConsumer": [
+        "(aucun validator)"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SECURITY-001",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "IntegrityWithConfidentiality",
+      "MACsecConfig"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "IntegrityWithConfidentiality": [
+        "(aucun validator)"
+      ],
+      "MACsecConfig": [
+        "validate_mka_macsecmode_disabled",
+        "validate_life_time_greater_than_hello_time"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-SECURITY-002",
+    "submodels_declared": [
+      "flync_4_security"
+    ],
+    "entities_found_in_model": [
+      "Firewall",
+      "FirewallRule"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "Firewall": [
+        "check_duplicate_rules"
+      ],
+      "FirewallRule": [
+        "validate_pattern"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  },
+  {
+    "scenario_id": "SC-CROSS-001",
+    "submodels_declared": [
+      "flync_4_signal",
+      "flync_4_ecu",
+      "flync_4_communication"
+    ],
+    "entities_found_in_model": [
+      "CANFrameForwarder",
+      "EthSocketEgress",
+      "Frame"
+    ],
+    "entities_found_in_sdk": [],
+    "entities_unresolved_hint": [],
+    "validators_on_matched_classes": {
+      "CANFrameForwarder": [
+        "validate_can_frame_forwarder_egress_uniqueness"
+      ],
+      "EthSocketEgress": [
+        "(aucun validator)"
+      ],
+      "Frame": [
+        "_validate_pdu_placements"
+      ]
+    },
+    "classification": "MODEL_ONLY"
+  }
+]

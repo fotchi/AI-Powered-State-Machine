@@ -1,0 +1,1092 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-25T12:05:13.550079+00:00",
+    "flync_commit_sha": "3f7004333541b2c49b6f960ffe3d3006e97b5019",
+    "total_scenarios": 117,
+    "type_distribution": {
+      "Positive": 68,
+      "Negative": 49
+    },
+    "scenario_count_per_submodel": {
+      "flync_4_app": 14,
+      "flync_4_bus": 12,
+      "flync_4_communication": 1,
+      "flync_4_ecu": 13,
+      "flync_4_metadata": 8,
+      "flync_4_nm": 11,
+      "flync_4_security": 13,
+      "flync_4_signal": 10,
+      "flync_4_someip": 11,
+      "flync_4_topology": 10,
+      "flync_4_tsn": 14
+    },
+    "submodels_covered": [
+      "flync_4_app",
+      "flync_4_bus",
+      "flync_4_communication",
+      "flync_4_ecu",
+      "flync_4_metadata",
+      "flync_4_nm",
+      "flync_4_security",
+      "flync_4_signal",
+      "flync_4_someip",
+      "flync_4_topology",
+      "flync_4_tsn"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "SC-APP-001",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid App Definition with Service Consumer Reference",
+      "description": "An App defined in 'apps/telemetry_app.flync.yaml' contains a valid ServiceConsumerReference pointing to 'service_id: telemetry_data' with 'instance_id: 1' and 'transport_protocol: SOME/IP'.",
+      "expected_result": "Validation succeeds; the App is correctly parsed and the ServiceConsumerReference is linked to the defined service interface.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-001-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid ServiceConsumerReference – Dangling Service Identifier",
+      "description": "The same App definition points the ServiceConsumerReference to a non‑existent service_id 'nonexistent_service' (instance_id: 1, transport_protocol: SOME/IP).",
+      "expected_result": "Validation fails; the parser reports a dangling reference error for service_id 'nonexistent_service'.",
+      "injected_fault": "missing or dangling reference (ServiceConsumerReference points to undefined service)"
+    },
+    {
+      "id": "SC-APP-003",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid AppBindings Mapping App to ECU Controller",
+      "description": "An 'app_bindings.flync.yaml' file in an ECU controller directory maps 'app_name: telemetry_app' to 'ecu_controller: hpc_controller1' with 'priority: 100' and 'stack_size: 4096'.",
+      "expected_result": "Validation succeeds; the AppBinding correctly associates the application with the specified ECU controller and resource parameters.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-003-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid AppBinding – Out‑of‑Range Priority",
+      "description": "The same AppBinding sets 'priority: 300' (outside the allowed 0‑255 range) while keeping other fields unchanged.",
+      "expected_result": "Validation fails; the parser reports that priority value 300 is out of the permitted range.",
+      "injected_fault": "out-of-range value at or beyond a boundary (priority > 255)"
+    },
+    {
+      "id": "SC-APP-004",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid ServiceConsumerReference with Multiple Methods",
+      "description": "A ServiceConsumerReference within an App defines 'methods: [get_status, reset_counter]' and 'events: [status_changed]' for service 'diagnostics_service'.",
+      "expected_result": "Validation succeeds; the ServiceConsumerReference correctly lists multiple methods and events associated with the referenced service.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-004-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid ServiceConsumerReference – Unknown Method",
+      "description": "The same ServiceConsumerReference lists 'methods: [get_status, unknown_method]' where 'unknown_method' is not defined in 'diagnostics_service'.",
+      "expected_result": "Validation fails; the parser reports that method 'unknown_method' is not part of service 'diagnostics_service'.",
+      "injected_fault": "missing or dangling reference (method not declared on provider side)"
+    },
+    {
+      "id": "SC-APP-005",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid ServiceProviderReference with Multiple Fields",
+      "description": "A ServiceProviderReference within an App defines 'fields: [current_speed, rpm]' and 'methods: [set_mode]' for service 'vehicle_data_service'.",
+      "expected_result": "Validation succeeds; the ServiceProviderReference correctly lists multiple fields and methods associated with the referenced service.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-005-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid ServiceProviderReference – Undefined Field",
+      "description": "The same ServiceProviderReference adds 'fields: [current_speed, rpm, unknown_field]' where 'unknown_field' does not exist in 'vehicle_data_service'.",
+      "expected_result": "Validation fails; the parser reports that field 'unknown_field' is not defined for service 'vehicle_data_service'.",
+      "injected_fault": "missing or dangling reference (field not declared on provider side)"
+    },
+    {
+      "id": "SC-APP-006",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid App with Unique Instance ID",
+      "description": "An App definition includes 'instance_id: 1001' which is unique within the scope of the application layer and does not conflict with other apps.",
+      "expected_result": "Validation succeeds; the App is accepted with a unique instance identifier, ensuring no collision with other application instances.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-006-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid App – Duplicate Instance ID",
+      "description": "Another App in the same system already uses 'instance_id: 1001'; the new App repeats this identifier.",
+      "expected_result": "Validation fails; the parser reports a duplicate instance_id error for value 1001.",
+      "injected_fault": "duplicate identifier (instance_id collision)"
+    },
+    {
+      "id": "SC-APP-007",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid AppBindings with Multiple App References",
+      "description": "An 'app_bindings.flync.yaml' file contains a list of two AppBindings: one for 'telemetry_app' and one for 'control_app', both mapped to 'hpc_controller1'.",
+      "expected_result": "Validation succeeds; the AppBindings file correctly parses multiple application bindings for the same ECU controller.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-007-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid AppBindings – Duplicate App Name",
+      "description": "The same AppBindings file contains two entries for 'telemetry_app' (duplicate app_name) both targeting 'hpc_controller1'.",
+      "expected_result": "Validation fails; the parser reports that app_name 'telemetry_app' is bound more than once in the same AppBindings file.",
+      "injected_fault": "duplicate identifier (App name appears twice in AppBindings)"
+    },
+    {
+      "id": "SC-APP-008",
+      "submodel": "flync_4_app",
+      "type": "Positive",
+      "title": "Valid ServiceConsumerReference with Event Group",
+      "description": "A ServiceConsumerReference includes 'event_groups: [group_1]' for service 'sensor_data_service' with 'transport_protocol: SOME/IP'.",
+      "expected_result": "Validation succeeds; the ServiceConsumerReference correctly references an event group associated with the service.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-APP-008-NEG",
+      "submodel": "flync_4_app",
+      "type": "Negative",
+      "title": "Invalid ServiceConsumerReference – Non-existent Event Group",
+      "description": "The same ServiceConsumerReference references 'event_groups: [group_X]' for service 'sensor_data_service', but event group 'group_X' is not defined for the referenced service.",
+      "expected_result": "Validation fails; the parser reports a dangling reference because event group 'group_X' does not exist for the referenced service.",
+      "injected_fault": "missing or dangling reference (event group not declared on provider side)"
+    },
+    {
+      "id": "SC-BUS-001",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "Valid CAN Bus Configuration with Unique Name",
+      "description": "A CAN bus is defined in 'communication/channels/can/powertrain_can.flync.yaml' with the internal name 'PowertrainCAN', baud_rate set to 500000, and an empty list of frames to verify basic structural validity.",
+      "expected_result": "Validation succeeds; the CAN bus is recognized with the correct name and baud rate, confirming that the file structure and mandatory fields are compliant.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-001-NEG",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "Duplicate CAN Bus Name",
+      "description": "Two CAN bus definitions exist with the same internal name 'PowertrainCAN' (e.g., one in 'powertrain_can.flync.yaml' and another in 'aux_can.flync.yaml'), violating the uniqueness constraint for bus identifiers.",
+      "expected_result": "Validation fails; the model reports a duplicate bus identifier error for 'PowertrainCAN'.",
+      "injected_fault": "duplicate identifier (bus name)"
+    },
+    {
+      "id": "SC-BUS-002",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "CAN Bus with Valid Frame References",
+      "description": "A CAN bus configuration includes a frames list containing one frame named 'EngineSpeed' which references a PDU 'PDU_EngineSpeed' via pdu_ref, ensuring the frame is properly linked to the bus.",
+      "expected_result": "Validation succeeds; the frame 'EngineSpeed' is accepted on the bus, and the reference to 'PDU_EngineSpeed' is resolved correctly without circular or missing reference errors.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-003",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "LIN Bus with Exactly One Master Node",
+      "description": "A LIN bus is defined in 'communication/channels/lin/body_lin.flync.yaml' with name 'BodyLIN', baud_rate 19200, and a nodes list containing exactly one master node 'BCM' and two slave nodes 'DoorModule' and 'LightModule'.",
+      "expected_result": "Validation succeeds; the LIN bus configuration is accepted because it strictly adheres to the requirement of having exactly one master node and valid slave nodes.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-004",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "LIN Bus with Valid Schedule Table Reference",
+      "description": "A LIN bus configuration includes a schedule_tables list containing one table named 'DefaultSchedule' which references frames 'Frame_Lights' and 'Frame_Doors' that are defined in the bus's frames section.",
+      "expected_result": "Validation succeeds; the schedule table 'DefaultSchedule' is accepted, and all referenced frame names are verified to exist within the bus's frame definitions.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-004-NEG",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "LIN Schedule Table Referencing Undefined Frame",
+      "description": "The schedule table 'DefaultSchedule' references a frame named 'Frame_Windows' which is not defined in the LIN bus's frames list.",
+      "expected_result": "Validation fails; the model reports an undefined frame reference 'Frame_Windows' in schedule table 'DefaultSchedule'.",
+      "injected_fault": "missing or dangling reference (frame does not exist)"
+    },
+    {
+      "id": "SC-BUS-005",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "LIN Schedule Table with Valid Entry Order",
+      "description": "A LIN schedule table named 'DefaultSchedule' contains two entries: the first entry references frame 'Frame_Lights' with priority 1, and the second entry references frame 'Frame_Doors' with priority 2, maintaining a strict sequential order.",
+      "expected_result": "Validation succeeds; the schedule table entries are accepted in the specified order, confirming that the priority and sequence logic are correctly implemented.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-005-NEG",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "LIN Schedule Entry with Out‑of‑Range Priority",
+      "description": "The second entry in 'DefaultSchedule' uses a priority value of 0, which is outside the allowed positive range for schedule entry priorities.",
+      "expected_result": "Validation fails; the model reports that priority 0 is invalid for schedule entry referencing 'Frame_Doors'.",
+      "injected_fault": "out-of-range value (priority 0)"
+    },
+    {
+      "id": "SC-BUS-006",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "LIN Schedule Entry with Valid Timing Parameters",
+      "description": "A LIN schedule entry references frame 'Frame_Lights' with a min_interval of 100ms and max_interval of 200ms, ensuring the timing constraints are within valid positive integer ranges.",
+      "expected_result": "Validation succeeds; the timing parameters are accepted, confirming that the schedule entry correctly defines the transmission window for the referenced frame.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-007",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "CAN Bus with Valid Baud Rate",
+      "description": "A CAN bus is configured with a baud_rate of 250000, which is a standard automotive CAN speed, ensuring the parameter is within the acceptable range for CAN communication.",
+      "expected_result": "Validation succeeds; the baud rate is accepted, confirming that the CAN bus configuration supports standard automotive communication speeds.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-008",
+      "submodel": "flync_4_bus",
+      "type": "Positive",
+      "title": "LIN Bus with Valid Baud Rate",
+      "description": "A LIN bus is configured with a baud_rate of 9600, which is a standard automotive LIN speed, ensuring the parameter is within the acceptable range for LIN communication.",
+      "expected_result": "Validation succeeds; the baud rate is accepted, confirming that the LIN bus configuration supports standard automotive communication speeds.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-BUS-008-NEG",
+      "submodel": "flync_4_bus",
+      "type": "Negative",
+      "title": "LIN Bus with More Than One Master Node",
+      "description": "A LIN bus configuration defines two master nodes on the same LIN bus, violating the requirement that a LIN bus has exactly one master node.",
+      "expected_result": "Validation fails because multiple master nodes are defined for the same LIN bus.",
+      "injected_fault": "duplicate master node on the same LIN bus"
+    },
+    {
+      "id": "SC-COMMUNICATION-001",
+      "submodel": "flync_4_communication",
+      "type": "Positive",
+      "title": "Valid FLYNCChannelConfig with Defined Bus and PDU References",
+      "description": "A FLYNCChannelConfig is instantiated with a valid bus reference 'CAN_BUS_1' and a list of PDU references ['PDU_0x100', 'PDU_0x101'], ensuring all referenced entities exist within the project scope.",
+      "expected_result": "Validation succeeds; the channel configuration correctly links the specified bus and PDU definitions without circular dependencies or missing references.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-001",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Valid ECU Configuration with Mandatory Ports",
+      "description": "An ECU is configured with a valid name 'HPC_ECU' and includes a mandatory 'ports.flync.yaml' file defining at least one physical port, satisfying the requirement that all ECUs must define at least one port.",
+      "expected_result": "Validation succeeds; the ECU configuration is accepted as the mandatory ports file is present and valid.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-002",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "ECU Port with External PHY and MDI/MII Config",
+      "description": "An ECUPort is configured with an external PHY, including valid 'mdi_config' (e.g., mdi: off) and 'mii_config' (e.g., mii: mii, speed: 100), ensuring correct physical layer configuration for external transceivers.",
+      "expected_result": "Validation succeeds; the port configuration correctly associates the external PHY with the required MDI and MII settings.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-002-NEG",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "External PHY Port Missing MII Configuration",
+      "description": "An ECUPort declares an external PHY and provides a valid 'mdi_config' but omits the required 'mii_config' field.",
+      "expected_result": "Validation fails; the validator reports that an external PHY must be accompanied by an MII configuration.",
+      "injected_fault": "missing or dangling reference (required mii_config not provided for external PHY)"
+    },
+    {
+      "id": "SC-ECU-003",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Controller with Mandatory Directory Structure",
+      "description": "A Controller named 'HPC_Controller1' is defined within the mandatory 'controllers/' directory, containing at least one interface configuration file, adhering to the structure updated in version 0.11.0.",
+      "expected_result": "Validation succeeds; the controller is recognized as valid because it resides in the mandatory directory and defines at least one interface.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-003-NEG",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "Controller Missing Interface Configuration",
+      "description": "Controller 'HPC_Controller1' exists in the 'controllers/' directory but no interface configuration file is present inside its folder.",
+      "expected_result": "Validation fails; the tool flags the controller as invalid because it does not define any interfaces.",
+      "injected_fault": "missing or dangling reference (controller lacks required interface definition)"
+    },
+    {
+      "id": "SC-ECU-004",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Ethernet Interface with Integrated PHY",
+      "description": "An EthernetInterface is configured with an integrated PHY, omitting the 'mii_config' field as per the hint that it is not needed for integrated PHYs, while ensuring no MDI configuration is present on the interface level.",
+      "expected_result": "Validation succeeds; the interface is accepted because the absence of mii_config is correct for integrated PHYs, and MDI config is correctly absent from the interface level.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-005",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "CAN Interface Attached to Valid Bus Reference",
+      "description": "A CANInterface is configured with a valid 'bus_ref' pointing to an existing CAN bus defined in the system topology, ensuring the interface is correctly attached to the network.",
+      "expected_result": "Validation succeeds; the CAN interface is accepted as the bus_ref resolves to a valid system-wide bus definition.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-006",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "LIN Master Interface on Dedicated Bus",
+      "description": "A LINMasterInterface is configured on a specific LIN bus, ensuring that exactly one master is defined for this bus as required by the LIN protocol constraints.",
+      "expected_result": "Validation succeeds; the LIN master interface is accepted as it satisfies the requirement of having exactly one master per LIN bus.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-006-NEG",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "Multiple LIN Masters on Same Bus",
+      "description": "Two LINMasterInterface objects are defined on the same LIN bus, violating the rule that only one master may exist per LIN bus.",
+      "expected_result": "Validation fails; the validator detects more than one LIN master on the bus and reports a configuration error.",
+      "injected_fault": "duplicate identifier (multiple LIN masters on a single bus)"
+    },
+    {
+      "id": "SC-ECU-007",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Virtual Switch Configuration per Controller",
+      "description": "A VirtualSwitch is defined in a separate 'virtual_switch.flync.yaml' file within a controller's directory, containing valid VirtualSwitchPort definitions that map to internal interfaces.",
+      "expected_result": "Validation succeeds; the virtual switch configuration is accepted as it is properly scoped to the controller and defines valid ports.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-007-NEG",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "Virtual Switch Missing Port Definitions",
+      "description": "A VirtualSwitch file is present but it does not contain any VirtualSwitchPort entries.",
+      "expected_result": "Validation fails; the tool reports that a virtual switch must define at least one port.",
+      "injected_fault": "missing or dangling reference (virtual switch without required ports)"
+    },
+    {
+      "id": "SC-ECU-008",
+      "submodel": "flync_4_ecu",
+      "type": "Positive",
+      "title": "Socket Container with UDP Socket and IPv4 Endpoint",
+      "description": "A SocketContainer defines a SocketUDP with VLAN ID 100, an IPv4AddressEndpoint '192.168.1.10', and port number 30000, grouping similar SOME/IP functionality together.",
+      "expected_result": "Validation succeeds; the socket configuration is accepted as it contains valid VLAN, IP address, and port definitions for a UDP socket.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-ECU-008-NEG",
+      "submodel": "flync_4_ecu",
+      "type": "Negative",
+      "title": "SocketContainer with Invalid VLAN ID",
+      "description": "A SocketContainer defines a VLAN ID of 5000, which is outside the valid VLAN identifier range.",
+      "expected_result": "Validation fails because the configured VLAN ID is out of the permitted range.",
+      "injected_fault": "out-of-range VLAN ID"
+    },
+    {
+      "id": "SC-METADATA-001",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid SystemMetadata with Mandatory Fields",
+      "description": "A system_metadata.flync.yaml file is provided containing the mandatory 'name' field set to 'VehicleSystemA' and 'version' set to '1.0.0', adhering to the BaseMetadata structure.",
+      "expected_result": "Validation succeeds; the SystemMetadata is recognized as valid because all mandatory fields are present and correctly typed.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-001-NEG",
+      "submodel": "flync_4_metadata",
+      "type": "Negative",
+      "title": "Invalid SystemMetadata – Duplicate System Name",
+      "description": "The system_metadata.flync.yaml file defines the 'name' field as 'VehicleSystemA' while another system in the same configuration already uses the identical name, creating a duplicate identifier.",
+      "expected_result": "Validation fails; the validator reports a duplicate system name error because system identifiers must be unique across the configuration.",
+      "injected_fault": "duplicate identifier (system name)"
+    },
+    {
+      "id": "SC-METADATA-002",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid ECUMetadata with Unique Identifier",
+      "description": "An ecu_metadata.flync.yaml file defines an ECU with 'id' set to 'HPC_ECU_01', 'name' set to 'High Performance Compute', and 'version' set to '2.1.0', satisfying the mandatory requirements for ECU configuration.",
+      "expected_result": "Validation succeeds; the ECUMetadata is accepted as it contains the required identification fields and valid version string.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-003",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid Hardware Version using SemVer",
+      "description": "The HardwareBaseMetadata within an ECU definition specifies 'hw_version' as '1.2.3', which strictly follows Semantic Versioning (MAJOR.MINOR.PATCH) format.",
+      "expected_result": "Validation succeeds; the hardware version string is parsed correctly as a valid SemVer string.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-003-NEG",
+      "submodel": "flync_4_metadata",
+      "type": "Negative",
+      "title": "Invalid HardwareBaseMetadata – Malformed SemVer",
+      "description": "The HardwareBaseMetadata specifies 'hw_version' as '1.2', which is missing the required PATCH segment and therefore does not conform to Semantic Versioning.",
+      "expected_result": "Validation fails; the validator rejects the hardware version because it does not match the required MAJOR.MINOR.PATCH SemVer pattern.",
+      "injected_fault": "malformed version string (hw_version)"
+    },
+    {
+      "id": "SC-METADATA-004",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid Software Version using PEP440",
+      "description": "The SoftwareBaseMetadata within an ECU definition specifies 'sw_version' as '2.0.0rc1', which adheres to PEP440 versioning standards for release candidates.",
+      "expected_result": "Validation succeeds; the software version string is accepted as a valid PEP440 compliant version.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-METADATA-004-NEG",
+      "submodel": "flync_4_metadata",
+      "type": "Negative",
+      "title": "Invalid SoftwareBaseMetadata – Non‑PEP440 Version",
+      "description": "The SoftwareBaseMetadata specifies 'sw_version' as '2.0.0-rc', which does not follow the PEP440 syntax for release candidates.",
+      "expected_result": "Validation fails; the validator reports an invalid software version because it cannot be parsed as a PEP440 compliant string.",
+      "injected_fault": "malformed version string (sw_version)"
+    },
+    {
+      "id": "SC-METADATA-005",
+      "submodel": "flync_4_metadata",
+      "type": "Positive",
+      "title": "Valid EmbeddedMetadata for Controller",
+      "description": "Create an EmbeddedMetadata instance for a controller with a parent ECU identifier that matches an existing ECUMetadata identifier in the system configuration.",
+      "expected_result": "Validation succeeds; the EmbeddedMetadata instance is accepted and its parent ECU reference resolves to the existing ECUMetadata.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-001",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid StateManagementGroup with PDU and Timing Reference",
+      "description": "A StateManagementGroup named 'VEHICLE' is configured with nm_pdu 'PDU_NmMessage' and references a valid timing_profile 'standard' defined in timing_profiles.flync.yaml.",
+      "expected_result": "Validation succeeds; the group identity is valid, the PDU reference resolves to a network_management PDU, and the timing profile reference is found.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-001-NEG",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid StateManagementGroup – Missing Timing Profile",
+      "description": "A StateManagementGroup named 'VEHICLE' references a non‑existent timing_profile 'nonexistent_profile'.",
+      "expected_result": "Validation fails; the validator reports a missing timing profile reference.",
+      "injected_fault": "Dangling reference: timing_profile 'nonexistent_profile' does not exist in timing_profiles.flync.yaml."
+    },
+    {
+      "id": "SC-NM-002",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid GroupTiming with Standard Cycle Time",
+      "description": "A GroupTiming profile named 'standard' is configured with cycle_time_ms set to 500, representing the message sending cycle in normal operation.",
+      "expected_result": "Validation succeeds; the cycle_time_ms is a positive integer and correctly defines the periodic NM message interval.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-002-NEG",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid GroupTiming – Negative Cycle Time",
+      "description": "A GroupTiming profile named 'standard' is configured with cycle_time_ms set to -100.",
+      "expected_result": "Validation fails; the validator reports that cycle_time_ms is out of the allowed range.",
+      "injected_fault": "Out‑of‑range value: cycle_time_ms must be a positive integer; -100 is invalid."
+    },
+    {
+      "id": "SC-NM-003",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid AnnouncementPhaseTiming with Burst Configuration",
+      "description": "An AnnouncementPhaseTiming is configured with duration_ms 1000, burst_count 5, and burst_cycle_time_ms 20, defining the initial wake-up burst behavior.",
+      "expected_result": "Validation succeeds; the burst parameters are consistent, and the burst_cycle_time_ms is less than or equal to the standard cycle_time_ms.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-003-NEG",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid AnnouncementPhaseTiming – Burst Cycle Exceeds Group Cycle",
+      "description": "An AnnouncementPhaseTiming is configured with burst_cycle_time_ms 600, which is greater than the group's standard cycle_time_ms of 500.",
+      "expected_result": "Validation fails; the validator reports that burst_cycle_time_ms must not exceed the group's cycle_time_ms.",
+      "injected_fault": "Logical inconsistency: burst_cycle_time_ms (600) exceeds the group cycle_time_ms (500)."
+    },
+    {
+      "id": "SC-NM-004",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid SleepTiming with Timeout and Wait Parameters",
+      "description": "A SleepTiming configuration is set with timeout_ms 2000 and wait_before_sleep_ms 1500, defining the progression to sleep state.",
+      "expected_result": "Validation succeeds; the sleep timing parameters are positive integers and correctly define the delay before entering sleep mode.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-004-NEG",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid SleepTiming – Wait Longer Than Timeout",
+      "description": "A SleepTiming configuration is set with timeout_ms 1500 and wait_before_sleep_ms 2000.",
+      "expected_result": "Validation fails; the validator reports that wait_before_sleep_ms must be less than or equal to timeout_ms.",
+      "injected_fault": "Logical error: wait_before_sleep_ms (2000) is greater than timeout_ms (1500)."
+    },
+    {
+      "id": "SC-NM-005",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid Participant Membership with Relevance Bits",
+      "description": "A Controller declares a StateMembershipRef with role 'participant' and relevance_bits ['AutonomousDriving', 'OnlineCommunication'] for group 'VEHICLE'.",
+      "expected_result": "Validation succeeds; the participant role correctly includes relevance bits, and the bits are valid identifiers for vehicle functions.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-006",
+      "submodel": "flync_4_nm",
+      "type": "Positive",
+      "title": "Valid Observer Membership Without Relevance Bits",
+      "description": "A Switch Controller declares a StateMembershipRef with role 'observer' for group 'VEHICLE' and no relevance_bits specified.",
+      "expected_result": "Validation succeeds; the observer role correctly omits relevance bits, as observers do not influence the wake/sleep decision.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-NM-006-NEG",
+      "submodel": "flync_4_nm",
+      "type": "Negative",
+      "title": "Invalid Observer Membership – Unexpected Relevance Bits",
+      "description": "A Switch Controller declares a StateMembershipRef with role 'observer' and includes relevance_bits ['Diagnostics', 'OnlineCommunication'], although observer memberships must not define relevance bits.",
+      "expected_result": "Validation fails because an observer StateMembershipRef must not contain relevance_bits.",
+      "injected_fault": "invalid relevance_bits configuration for observer role"
+    },
+    {
+      "id": "SC-SECURITY-001",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid MACsecConfig with IntegrityWithConfidentiality",
+      "description": "A MACsecConfig is defined with the security_mode set to IntegrityWithConfidentiality, using a valid key_id of 1 and a properly formatted 16-byte key.",
+      "expected_result": "Validation succeeds; the MACsecConfig is accepted with confidentiality enabled and the associated key parameters are verified.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-001-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid MACsecConfig – Key length too short",
+      "description": "A MACsecConfig is defined with security_mode IntegrityWithConfidentiality, key_id 1, but the key is only 8 bytes long (instead of the required 16 bytes).",
+      "expected_result": "Validation fails; the MACsecConfig is rejected because the key does not meet the required 16‑byte length.",
+      "injected_fault": "malformed or unauthenticated handshake – key length mismatch"
+    },
+    {
+      "id": "SC-SECURITY-002-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid MACsecConfig – Duplicate key_id",
+      "description": "A MACsecConfig is defined with security_mode IntegrityWithoutConfidentiality and key_id 2, but another MACsecConfig in the same model already uses key_id 2.",
+      "expected_result": "Validation fails; the configuration is rejected because key_id 2 is not unique within the security model.",
+      "injected_fault": "duplicate identifier (key_id)"
+    },
+    {
+      "id": "SC-SECURITY-003",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid Firewall with Multiple Rules",
+      "description": "A Firewall object is configured with a list containing two valid FirewallRule objects, each with unique rule_ids 10 and 11.",
+      "expected_result": "Validation succeeds; the Firewall container accepts multiple rules and validates the uniqueness of rule_ids within the list.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-003-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid Firewall – Duplicate rule_id",
+      "description": "A Firewall object contains two FirewallRule entries both using rule_id 10 (instead of unique IDs 10 and 11).",
+      "expected_result": "Validation fails; the Firewall is rejected because rule_id 10 appears more than once.",
+      "injected_fault": "duplicate identifier (rule_id)"
+    },
+    {
+      "id": "SC-SECURITY-004",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid FirewallRule with Action ALLOW",
+      "description": "A FirewallRule is configured with rule_id 10, action set to ALLOW, and a valid source_address of '192.168.1.1'.",
+      "expected_result": "Validation succeeds; the FirewallRule is accepted with the ALLOW action and the valid IPv4 source address.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-004-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid FirewallRule – Malformed source address",
+      "description": "A FirewallRule is configured with rule_id 10, action ALLOW, but the source_address is set to '300.168.1.1', which is outside the IPv4 address range.",
+      "expected_result": "Validation fails; the rule is rejected because the source_address is not a valid IPv4 address.",
+      "injected_fault": "out-of-range value (source_address)"
+    },
+    {
+      "id": "SC-SECURITY-005-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid FirewallRule – Dangling destination reference",
+      "description": "A FirewallRule is configured with rule_id 11, action DENY, and destination_address '10.255.255.255' which does not correspond to any defined network interface or ECU in the system.",
+      "expected_result": "Validation fails; the rule is rejected because the destination_address does not map to any known interface/ECU.",
+      "injected_fault": "missing or dangling reference (destination_address)"
+    },
+    {
+      "id": "SC-SECURITY-006",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid FirewallRule with Specific Port Range",
+      "description": "A FirewallRule is configured with rule_id 12, action ALLOW, and a valid port_range defined as start_port 80 and end_port 443.",
+      "expected_result": "Validation succeeds; the FirewallRule accepts the valid port range where start_port is less than or equal to end_port.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-006-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid FirewallRule – Inverted port range",
+      "description": "A FirewallRule is configured with rule_id 12, action ALLOW, but the port_range is defined with start_port 5000 and end_port 80 (start > end).",
+      "expected_result": "Validation fails; the rule is rejected because start_port must be less than or equal to end_port.",
+      "injected_fault": "out-of-range value (port_range start > end)"
+    },
+    {
+      "id": "SC-SECURITY-007",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid MACsecConfig with Unique Key ID",
+      "description": "A MACsecConfig is defined with a unique key_id of 5, ensuring no collision with other configured MACsec instances in the model.",
+      "expected_result": "Validation succeeds; the key_id is accepted as unique within the scope of the security configuration.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-008",
+      "submodel": "flync_4_security",
+      "type": "Positive",
+      "title": "Valid FirewallRule with Protocol TCP",
+      "description": "A FirewallRule is configured with rule_id 13, action ALLOW, and protocol explicitly set to TCP.",
+      "expected_result": "Validation succeeds; the FirewallRule accepts the valid protocol identifier TCP.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SECURITY-008-NEG",
+      "submodel": "flync_4_security",
+      "type": "Negative",
+      "title": "Invalid FirewallRule – Unknown protocol",
+      "description": "A FirewallRule is configured with rule_id 13, action ALLOW, but protocol is set to \"ICMPX\", which is not a defined protocol identifier.",
+      "expected_result": "Validation fails; the rule is rejected because the protocol 'ICMPX' is not a supported protocol identifier.",
+      "injected_fault": "invalid protocol identifier (unsupported value 'ICMPX')"
+    },
+    {
+      "id": "SC-SIGNAL-001",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Valid UINT16 Signal with Matching Bit Length",
+      "description": "A Signal is configured with data_type UINT16 and bit_length 16, which equals the natural bit width of UINT16, with a linear scaling factor of 0.1 and unit 'km/h'.",
+      "expected_result": "Validation succeeds; the Signal's bit_length matches the natural bit width of its declared data_type and the linear conversion parameters are accepted.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-001-NEG",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "UINT16 Signal with Incorrect Bit Length",
+      "description": "A Signal is configured with data_type UINT16 but bit_length is set to 8, which does not match the natural bit width of UINT16.",
+      "expected_result": "Validation fails; the bit_length is out of range for the declared UINT16 data_type.",
+      "injected_fault": "out-of-range value at or beyond a boundary (bit_length does not match natural width of the data type)"
+    },
+    {
+      "id": "SC-SIGNAL-002",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "SignalInstance with Valid Byte Order and Offset",
+      "description": "A SignalInstance wraps a Signal with InstancePlacement specifying byte_order 'LITTLE_ENDIAN' and bit_offset 0, ensuring correct bit-level placement within a PDU.",
+      "expected_result": "Validation succeeds; the SignalInstance correctly links the Signal to its physical placement with valid byte order and offset values.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-002-NEG",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "SignalInstance with Out‑of‑Range Bit Offset",
+      "description": "A SignalInstance wraps a Signal whose InstancePlacement specifies byte_order 'LITTLE_ENDIAN' and bit_offset 20, while the underlying Signal is only 8 bits wide.",
+      "expected_result": "Validation fails; the bit_offset is outside the valid range for the referenced Signal.",
+      "injected_fault": "out-of-range value at or beyond a boundary (bit_offset exceeds signal size)"
+    },
+    {
+      "id": "SC-SIGNAL-003",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Text Table Encoding with Single Value Entries",
+      "description": "A Signal uses value_encoding type 'text_table' with entries mapping raw value 0 to 'Park' and raw value 1 to 'Reverse', representing a standard enumerated gear signal.",
+      "expected_result": "Validation succeeds; the text_table encoding correctly maps discrete raw integer values to their respective text labels without overlap.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-003-NEG",
+      "submodel": "flync_4_signal",
+      "type": "Negative",
+      "title": "Text Table with Duplicate Raw Value",
+      "description": "A Signal uses value_encoding type 'text_table' with two entries both mapping raw value 0 to different labels ('Park' and 'Neutral'), creating a duplicate identifier for the same raw value.",
+      "expected_result": "Validation fails; duplicate raw value entries are not allowed in a text_table encoding.",
+      "injected_fault": "duplicate identifier (IP, MAC, Service ID, Frame ID)"
+    },
+    {
+      "id": "SC-SIGNAL-004",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Text Table Encoding with Non-Overlapping Ranges",
+      "description": "A Signal uses value_encoding type 'text_table' with range entries: from_value 0 to to_value 9 mapped to 'Low', and from_value 10 to to_value 99 mapped to 'Medium'.",
+      "expected_result": "Validation succeeds; the text_table correctly interprets inclusive ranges and confirms that the defined ranges do not overlap.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-005",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Linear Signal with Reserved Sentinel Value",
+      "description": "A Signal defines factor 1.0, offset -40.0, and unit 'degC', while value_encoding type 'text_table' maps raw value 255 to 'Signal_Not_Available', excluding it from linear scaling.",
+      "expected_result": "Validation succeeds; the system accepts the combination of linear scaling parameters and a reserved sentinel value, ensuring the sentinel is not subjected to factor/offset conversion.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-006",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Bitfield Text Table with Disjoint Masks",
+      "description": "A Signal uses value_encoding type 'bitfield_text_table' with two BitfieldGroups: Group 1 with mask 0x00FF for 'Problem' status and Group 2 with mask 0xFF00 for 'Mode' status.",
+      "expected_result": "Validation succeeds; the bitfield_text_table correctly validates that the masks for different groups are disjoint and cover distinct bit regions of the signal.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SIGNAL-007",
+      "submodel": "flync_4_signal",
+      "type": "Positive",
+      "title": "Bitmask Flags with Independent Flags",
+      "description": "A Signal uses value_encoding type 'bitmask_flags' with two BitmaskFlag entries: Flag 1 with mask 0x01 labeled 'Warning' and Flag 2 with mask 0x02 labeled 'Error'.",
+      "expected_result": "Validation succeeds; the bitmask_flags encoding correctly accepts independent flags that can be active simultaneously, verifying disjoint bit masks.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-001",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOMEIPConfig with Standard Directory Path",
+      "description": "A SOMEIPConfig is initialized with the configuration directory set to 'communication/someip/', which is the standard non-mandatory directory for SOME/IP related configuration such as service descriptions and timing profiles.",
+      "expected_result": "Validation succeeds; the SOMEIPConfig correctly identifies the configuration directory and prepares to load service descriptions and timing profiles from 'communication/someip/'.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-001-NEG",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SOMEIPConfig with Non‑existent Directory Path",
+      "description": "A SOMEIPConfig is initialized with the configuration directory set to 'communication/invalid_someip/', a path that does not exist in the project tree.",
+      "expected_result": "Validation fails; the tool reports that the specified configuration directory cannot be found.",
+      "injected_fault": "missing or dangling reference (configuration directory does not exist)"
+    },
+    {
+      "id": "SC-SOMEIP-002",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SDTimings with Defined Offer and Request Intervals",
+      "description": "An SDTimings object is configured with an offer_interval of 1000 ms, an initial_offer_delay of 100 ms, and a request_interval of 500 ms, defining a standard timing profile for Service Discovery.",
+      "expected_result": "Validation succeeds; the SDTimings object accepts the specified intervals and delays, creating a valid timing profile for Service Discovery operations.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-002-NEG",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SDTimings with Zero Request Interval",
+      "description": "An SDTimings object is configured with an offer_interval of 1000 ms, an initial_offer_delay of 100 ms, and a request_interval of 0 ms.",
+      "expected_result": "Validation fails; the tool flags the request_interval as invalid because it is outside the allowed range.",
+      "injected_fault": "out‑of‑range value (request_interval must be > 0)"
+    },
+    {
+      "id": "SC-SOMEIP-003",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOMEIPServiceInterface with Unique Service ID",
+      "description": "A SOMEIPServiceInterface is defined with the name 'VehicleStatus', a unique service_identifier of 0x1234, and includes one method, one event, and one field configuration.",
+      "expected_result": "Validation succeeds; the SOMEIPServiceInterface is correctly structured with a unique identifier and valid references to its contained methods, events, and fields.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-003-NEG",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SOMEIPServiceInterface with Duplicate Service ID",
+      "description": "A SOMEIPServiceInterface is defined with the name 'VehicleStatusDuplicate' and a service_identifier of 0x1234, which is already used by another service in the system.",
+      "expected_result": "Validation fails; the validator reports a duplicate service identifier error.",
+      "injected_fault": "duplicate identifier (service_identifier already exists)"
+    },
+    {
+      "id": "SC-SOMEIP-004",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOMEIPRequestResponseMethod with Request and Response Parameters",
+      "description": "A SOMEIPRequestResponseMethod is configured with method_id 0x01, a request parameter of type 'UINT32' named 'vehicle_id', and a response parameter of type 'STRING' named 'status_message'.",
+      "expected_result": "Validation succeeds; the method is recognized as a request-response type with correctly typed input and output parameters.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-004-NEG",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SOMEIPRequestResponseMethod with Undefined Parameter Type",
+      "description": "A SOMEIPRequestResponseMethod is configured with method_id 0x01, a request parameter of type 'UNKNOWN_TYPE' named 'vehicle_id', and a valid response parameter.",
+      "expected_result": "Validation fails; the tool cannot resolve the undefined datatype and reports a dangling reference error.",
+      "injected_fault": "missing or dangling reference (parameter type UNKNOWN_TYPE is not defined)"
+    },
+    {
+      "id": "SC-SOMEIP-005",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOMEIPFireAndForgetMethod with Single Input Parameter",
+      "description": "A SOMEIPFireAndForgetMethod is configured with method_id 0x02 and a single input parameter of type 'BOOL' named 'enable_feature', with no response parameter defined.",
+      "expected_result": "Validation succeeds; the method is correctly identified as fire-and-forget, accepting the input parameter without requiring a response definition.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-SOMEIP-005-NEG",
+      "submodel": "flync_4_someip",
+      "type": "Negative",
+      "title": "Invalid SOMEIPFireAndForgetMethod with Out‑of‑Range Method ID",
+      "description": "A SOMEIPFireAndForgetMethod is configured with method_id 0x10000 (65536), which exceeds the valid 16‑bit method identifier range (0‑65535).",
+      "expected_result": "Validation fails; the validator reports that method_id is out of the permissible range.",
+      "injected_fault": "out‑of‑range value (method_id exceeds maximum allowed)"
+    },
+    {
+      "id": "SC-SOMEIP-006",
+      "submodel": "flync_4_someip",
+      "type": "Positive",
+      "title": "Valid SOMEIPEventgroup with Associated Event IDs",
+      "description": "A SOMEIPEventgroup is defined with eventgroup_id 0x01 and contains event_ids [0x10, 0x11], where both referenced events are defined in the SOME/IP service interface.",
+      "expected_result": "Validation succeeds; the SOMEIPEventgroup is accepted and both event references resolve to valid SOMEIPEvent definitions.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-001",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid Ethernet Topology with Single ECU Port Connection",
+      "description": "An EthernetTopology is defined with a single ExternalConnection of type 'ecu_port_to_ecu_port', linking ECU 'ECU_A' port 'ETH_1' to ECU 'ECU_B' port 'ETH_1'.",
+      "expected_result": "Validation succeeds; the Ethernet topology is accepted as the connection type matches the required 'ecu_port_to_ecu_port' specification.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-001-NEG",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid Ethernet Topology – Duplicate ExternalConnection Identifier",
+      "description": "An EthernetTopology contains two ExternalConnection objects with identical source and target (ECU 'ECU_A' port 'ETH_1' → ECU 'ECU_B' port 'ETH_1'), creating a duplicate identifier.",
+      "expected_result": "Validation fails; the model reports a duplicate identifier error for the ExternalConnection.",
+      "injected_fault": "duplicate identifier (ExternalConnection) – two connections share the same source/target pair"
+    },
+    {
+      "id": "SC-TOPOLOGY-002",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid ExternalConnection with Correct Port References",
+      "description": "An ExternalConnection object is configured with source_ecu 'Gateway', source_port 'CAN_H', target_ecu 'Sensor', and target_port 'CAN_H', ensuring both ports exist in their respective ECU definitions.",
+      "expected_result": "Validation succeeds; the ExternalConnection is valid because the referenced ECUs and ports are correctly identified and linked.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-002-NEG",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid ExternalConnection – Dangling Target Port Reference",
+      "description": "An ExternalConnection references target_ecu 'Sensor' with target_port 'CAN_X', but port 'CAN_X' is not defined in ECU 'Sensor'.",
+      "expected_result": "Validation fails; the model reports a dangling reference error for the undefined target port.",
+      "injected_fault": "missing or dangling reference (target_port 'CAN_X' does not exist on ECU 'Sensor')"
+    },
+    {
+      "id": "SC-TOPOLOGY-003",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid CAN Bus Topology with Multiple Attachments",
+      "description": "A CANBusTopology is derived from a bus 'CAN_1' declared in communication.channels, with three ECU interfaces (ECU_A, ECU_B, ECU_C) referencing 'CAN_1' via bus_ref.",
+      "expected_result": "Validation succeeds; the CAN bus topology is correctly derived with three nodes attached, and no consistency warnings for single node or unused bus are raised.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-003-NEG",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid CAN Bus Topology – Unknown Bus Reference",
+      "description": "A CANBusTopology is derived from bus 'CAN_X' which is **not** declared under communication.channels; three ECU interfaces reference this non‑existent bus via bus_ref.",
+      "expected_result": "Validation fails; the model reports an unknown bus error for the CAN bus topology.",
+      "injected_fault": "Unknown bus (major) – CAN interface references a bus_ref that is not declared"
+    },
+    {
+      "id": "SC-TOPOLOGY-004",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid LIN Bus Topology with Single Master and Slaves",
+      "description": "A LINBusTopology is derived from bus 'LIN_1', where ECU 'Gateway' has a LIN interface with role 'master' and bus_ref 'LIN_1', and ECUs 'Door_1' and 'Door_2' have LIN interfaces with role 'slave' and bus_ref 'LIN_1'.",
+      "expected_result": "Validation succeeds; the LIN topology is valid because there is exactly one master interface and multiple slave interfaces attached to the bus.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-005",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid BusAttachmentPoint for CAN Interface",
+      "description": "A BusAttachmentPoint is created for ECU 'ECU_A' interface 'CAN_IF_1' attached to bus 'CAN_1', with correct pin mapping 'CAN_H' and 'CAN_L'.",
+      "expected_result": "Validation succeeds; the BusAttachmentPoint is correctly associated with the ECU interface and the target bus.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-006",
+      "submodel": "flync_4_topology",
+      "type": "Positive",
+      "title": "Valid FLYNCTopology with Empty Ethernet Topology",
+      "description": "A FLYNCTopology instance is created with an empty list for ethernet_topology, as the system contains only one ECU with no external Ethernet connections.",
+      "expected_result": "Validation succeeds; an empty Ethernet topology is valid for single-ECU systems where no external connections are defined.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TOPOLOGY-006-NEG",
+      "submodel": "flync_4_topology",
+      "type": "Negative",
+      "title": "Invalid FLYNCTopology – Duplicate ECU Identifier",
+      "description": "The model defines two ECU metadata entries both using the identifier 'ECU_SINGLE', causing a duplicate‑identifier error.",
+      "expected_result": "Validation fails; the model reports a duplicate ECU identifier error.",
+      "injected_fault": "duplicate identifier (ECU metadata ID) – two ECUs share the same identifier"
+    },
+    {
+      "id": "SC-TSN-001",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid PTPConfig with Primary Boundary Clock Role",
+      "description": "A PTPConfig is configured with the role set to 'boundary_clock', priority1 set to 128, priority2 set to 128, and domain_number set to 0, representing a standard boundary clock configuration.",
+      "expected_result": "Validation succeeds; the PTPConfig is accepted as a valid boundary clock configuration with standard priority and domain settings.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-001-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid PTPConfig – Domain Number Out of Range",
+      "description": "A PTPConfig is configured with the role set to 'boundary_clock', priority1 set to 128, priority2 set to 128, and domain_number set to 256 (outside the 0‑255 range).",
+      "expected_result": "Validation fails; domain_number exceeds the allowed maximum of 255.",
+      "injected_fault": "out-of-range value (domain_number = 256)"
+    },
+    {
+      "id": "SC-TSN-002",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid PTPPort with PortAdminState Enabled",
+      "description": "A PTPPort is configured with portAdminState set to 'ENABLED', logAnnounceInterval set to -3, and logSyncInterval set to -4, ensuring the port is active and participating in time synchronization.",
+      "expected_result": "Validation succeeds; the PTPPort is accepted with valid administrative state and standard interval configurations.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-002-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid PTPPort – Log Announce Interval Out of Range",
+      "description": "A PTPPort is configured with portAdminState set to 'ENABLED', logAnnounceInterval set to -130 (outside the allowed -128..127 range), and logSyncInterval set to -4.",
+      "expected_result": "Validation fails; logAnnounceInterval is outside the permitted range.",
+      "injected_fault": "out-of-range value (logAnnounceInterval = -130)"
+    },
+    {
+      "id": "SC-TSN-003",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid ATSInstance with Fixed Cycle Time",
+      "description": "An ATSInstance is configured with cycleTime set to 10000000 (10ms), offsetTime set to 0, and guardBand set to 1000, defining a deterministic time-aware shaping schedule.",
+      "expected_result": "Validation succeeds; the ATSInstance is accepted with a valid cycle time, offset, and guard band configuration.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-003-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid ATSInstance – Guard Band Larger Than Cycle Time",
+      "description": "An ATSInstance is configured with cycleTime set to 10000000 (10ms), offsetTime set to 0, and guardBand set to 20000000 (20ms), which violates the guard‑band ≤ cycle‑time rule.",
+      "expected_result": "Validation fails; guardBand cannot exceed cycleTime.",
+      "injected_fault": "size mismatch (guardBand > cycleTime)"
+    },
+    {
+      "id": "SC-TSN-004",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid CBSShaper with Credit Based Shaping Parameters",
+      "description": "A CBSShaper is configured with sendSlope set to 100000000 (100 Mbps), idleSlope set to -10000000 (-10 Mbps), and creditBaseTime set to 0, defining a valid credit-based shaping profile.",
+      "expected_result": "Validation succeeds; the CBSShaper is accepted with valid send and idle slopes for credit-based traffic shaping.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-004-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid CBSShaper – Idle Slope Positive",
+      "description": "A CBSShaper is configured with sendSlope set to 100000000 (100 Mbps), idleSlope set to 10000000 (+10 Mbps), and creditBaseTime set to 0, violating the requirement that idleSlope be non‑positive.",
+      "expected_result": "Validation fails; idleSlope must be zero or negative.",
+      "injected_fault": "out-of-range value (idleSlope must be ≤ 0)"
+    },
+    {
+      "id": "SC-TSN-005",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid HTBInstance with Root Class Configuration",
+      "description": "An HTBInstance is configured with rootClassId set to 0, rate set to 1000000000 (1 Gbps), and burst set to 1500, defining the root class for Hierarchical Token Bucket shaping.",
+      "expected_result": "Validation succeeds; the HTBInstance is accepted with a valid root class ID, rate, and burst size.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-005-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid HTBInstance – Zero Rate",
+      "description": "An HTBInstance is configured with rootClassId set to 0, rate set to 0, and burst set to 1500, which is illegal because a class rate must be > 0.",
+      "expected_result": "Validation fails; HTB class rate must be a positive integer.",
+      "injected_fault": "out-of-range value (rate = 0)"
+    },
+    {
+      "id": "SC-TSN-006",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid Stream with Ingress Policing Configuration",
+      "description": "A Stream is configured with streamId set to '01-80-C2-00-00-00-00-01', maxFramesPerInterval set to 100, and maxFrameSize set to 1500, defining a valid ingress stream policing rule.",
+      "expected_result": "Validation succeeds; the Stream is accepted with a valid stream ID and policing parameters.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-006-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid Stream – Malformed Stream ID",
+      "description": "A Stream is configured with streamId set to 'ZZ-80-C2-00-00-00-00-01' (non‑hex characters), maxFramesPerInterval set to 100, and maxFrameSize set to 1500.",
+      "expected_result": "Validation fails; streamId must be a valid 8‑byte hexadecimal identifier.",
+      "injected_fault": "malformed identifier (non‑hex characters in streamId)"
+    },
+    {
+      "id": "SC-TSN-007",
+      "submodel": "flync_4_tsn",
+      "type": "Positive",
+      "title": "Valid TrafficClass with CBS Shaper Assignment",
+      "description": "A TrafficClass is configured with classId set to 3, shaperType set to 'CBS', and reference to a valid CBSShaper instance, assigning credit-based shaping to priority class 3.",
+      "expected_result": "Validation succeeds; the TrafficClass is accepted with a valid class ID and shaper type assignment.",
+      "injected_fault": null
+    },
+    {
+      "id": "SC-TSN-007-NEG",
+      "submodel": "flync_4_tsn",
+      "type": "Negative",
+      "title": "Invalid TrafficClass – Dangling Shaper Reference",
+      "description": "A TrafficClass references a shaper identifier that is not defined in the TSN configuration.",
+      "expected_result": "Validation fails because the shaper reference of the TrafficClass cannot be resolved to an existing shaper instance.",
+      "injected_fault": "missing or dangling reference (TrafficClass references a non-existent shaper)"
+}
+  ]
+}
