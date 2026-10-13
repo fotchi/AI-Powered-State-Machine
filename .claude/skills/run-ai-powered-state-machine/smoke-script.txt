@@ -1,0 +1,12 @@
+nav http://localhost:8443/
+wait-for text=Sign in
+fill input[type="email"] qa@flync.io
+fill input[type="password"] flync123
+click button:has-text("Sign in")
+wait-for text=Platform Overview
+click-text Generate Scenario
+wait-for text=Scenario Requirements
+eval document.querySelector('main').scrollTo(0, 500)
+sleep 500
+screenshot 30-bus-coverage-picker
+console

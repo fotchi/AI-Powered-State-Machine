@@ -1,0 +1,10 @@
+{
+  "description": "Streamline QA testing with an AI-driven platform that generates, executes, and validates test scenarios, enhancing efficiency for software engineers.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

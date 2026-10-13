@@ -1,0 +1,9 @@
+fastapi==0.115.14
+uvicorn[standard]==0.34.3
+pydantic>=2.5,<3
+sqlalchemy>=2.0,<3
+boto3>=1.34  # optional: only used when S3_BUCKET is set, but imported lazily so safe to always install
+pyjwt>=2.9,<3
+bcrypt>=4.2
+cryptography>=43
+psycopg2-binary>=2.9  # only needed when DATABASE_URL points at postgresql://
